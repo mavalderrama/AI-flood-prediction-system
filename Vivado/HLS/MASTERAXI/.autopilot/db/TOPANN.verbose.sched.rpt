@@ -1,0 +1,188 @@
+
+
+================================================================
+== Vivado HLS Report for 'TOPANN'
+================================================================
+* Date:           Wed May  9 20:09:57 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        ANN
+* Solution:       MASTERAXI
+* Product family: zynq
+* Target device:  xc7z010clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.75|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   36|   38|   24|   26| dataflow |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 4, States = { 1 2 3 4 }
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+
+* FSM state operations: 
+
+ <State 1> : 4.63ns
+ST_1 : Operation 5 [1/1] (1.00ns)   --->   "%result_V_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %result_V)"   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 6 [1/1] (1.00ns)   --->   "%inputs_V_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %inputs_V)"   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%result_V_c = alloca i32, align 4"   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_1 : Operation 8 [2/2] (3.63ns)   --->   "%tmp = call fastcc { i32, i32, i32 } @Loop_memcpy.Ainputs.7(i32* %Inputs, i32 %inputs_V_read, i32 %result_V_read, i32* %result_V_c)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 2> : 0.00ns
+ST_2 : Operation 9 [1/2] (0.00ns)   --->   "%tmp = call fastcc { i32, i32, i32 } @Loop_memcpy.Ainputs.7(i32* %Inputs, i32 %inputs_V_read, i32 %result_V_read, i32* %result_V_c)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%Ainputs_2_loc_chann = extractvalue { i32, i32, i32 } %tmp, 0"   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%Ainputs_1_loc_chann = extractvalue { i32, i32, i32 } %tmp, 1"   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%Ainputs_0_loc_chann = extractvalue { i32, i32, i32 } %tmp, 2"   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+
+ <State 3> : 0.00ns
+ST_3 : Operation 13 [2/2] (0.00ns)   --->   "call fastcc void @Loop_neuronLoop_proc([1 x i32]* nocapture %layerWeigth_0_0_V, [1 x i32]* nocapture %layerWeigth_1_0_V, [1 x i32]* nocapture %layerWeigth_2_0_V, i32 %Ainputs_0_loc_chann, [1 x i32]* nocapture %layerWeigth_0_1_V, [1 x i32]* nocapture %layerWeigth_1_1_V, [1 x i32]* nocapture %layerWeigth_2_1_V, i32 %Ainputs_1_loc_chann, [1 x i32]* nocapture %layerWeigth_0_2_V, [1 x i32]* nocapture %layerWeigth_1_2_V, [1 x i32]* nocapture %layerWeigth_2_2_V, i32 %Ainputs_2_loc_chann, [1 x i32]* nocapture %bias_0_V, [1 x i32]* nocapture %bias_1_V, [1 x i32]* nocapture %bias_2_V, [1 x i32]* nocapture %outputLayerWeigth_0_V, [1 x i32]* nocapture %outputLayerWeigth_1_V, [1 x i32]* nocapture %outputLayerWeigth_2_V, [1 x i32]* nocapture %outputLayerBias_V, i32* %Output_r, i32* nocapture %result_V_c)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 4> : 0.00ns
+ST_4 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %Output_r), !map !86"
+ST_4 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %Inputs), !map !90"
+ST_4 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, [1 x i8]* @p_str) nounwind" [ANN/ANN.cpp:8]
+ST_4 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %layerWeigth_2_2_V), !map !96"
+ST_4 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %layerWeigth_2_1_V), !map !102"
+ST_4 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %layerWeigth_2_0_V), !map !108"
+ST_4 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %layerWeigth_1_2_V), !map !114"
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %layerWeigth_1_1_V), !map !119"
+ST_4 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %layerWeigth_1_0_V), !map !124"
+ST_4 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %layerWeigth_0_2_V), !map !129"
+ST_4 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %layerWeigth_0_1_V), !map !134"
+ST_4 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %layerWeigth_0_0_V), !map !139"
+ST_4 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %outputLayerWeigth_2_V), !map !144"
+ST_4 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %outputLayerWeigth_1_V), !map !149"
+ST_4 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %outputLayerWeigth_0_V), !map !154"
+ST_4 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %bias_2_V), !map !159"
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %bias_1_V), !map !163"
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %bias_0_V), !map !167"
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1 x i32]* %outputLayerBias_V), !map !171"
+ST_4 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([7 x i8]* @TOPANN_str) nounwind"
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [ANN/ANN.cpp:8]
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %Output_r, [6 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 1, [7 x i8]* @p_str7, [6 x i8]* @p_str8, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [ANN/ANN.cpp:8]
+ST_4 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %result_V, [10 x i8]* @mode1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 1, [1 x i8]* @bundle2, [6 x i8]* @p_str8, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [ANN/ANN.cpp:8]
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %outputLayerBias_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([1 x i32]* %outputLayerBias_V, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"
+ST_4 : Operation 39 [1/1] (0.00ns)   --->   "%empty_27 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %outputLayerWeigth_0_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%empty_28 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %outputLayerWeigth_1_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "%empty_29 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %outputLayerWeigth_2_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 42 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([1 x i32]* %outputLayerWeigth_0_V, [1 x i32]* %outputLayerWeigth_1_V, [1 x i32]* %outputLayerWeigth_2_V, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%empty_30 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %bias_0_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 44 [1/1] (0.00ns)   --->   "%empty_31 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %bias_1_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 45 [1/1] (0.00ns)   --->   "%empty_32 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %bias_2_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([1 x i32]* %bias_0_V, [1 x i32]* %bias_1_V, [1 x i32]* %bias_2_V, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%empty_33 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_0_0_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 48 [1/1] (0.00ns)   --->   "%empty_34 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_0_1_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%empty_35 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_0_2_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 50 [1/1] (0.00ns)   --->   "%empty_36 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_1_0_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%empty_37 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_1_1_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 52 [1/1] (0.00ns)   --->   "%empty_38 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_1_2_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%empty_39 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_2_0_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%empty_40 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_2_1_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 55 [1/1] (0.00ns)   --->   "%empty_41 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_2_2_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 56 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([1 x i32]* %layerWeigth_0_0_V, [1 x i32]* %layerWeigth_0_1_V, [1 x i32]* %layerWeigth_0_2_V, [1 x i32]* %layerWeigth_1_0_V, [1 x i32]* %layerWeigth_1_1_V, [1 x i32]* %layerWeigth_1_2_V, [1 x i32]* %layerWeigth_2_0_V, [1 x i32]* %layerWeigth_2_1_V, [1 x i32]* %layerWeigth_2_2_V, [10 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %Inputs, [6 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 3, [7 x i8]* @p_str9, [6 x i8]* @p_str8, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [ANN/ANN.cpp:8]
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %inputs_V, [10 x i8]* @mode, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 3, [1 x i8]* @bundle, [6 x i8]* @p_str8, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [ANN/ANN.cpp:8]
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%empty_42 = call i32 (...)* @_ssdm_op_SpecChannel([11 x i8]* @result_OC_V_c_str, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 0, i32* %result_V_c, i32* %result_V_c)"
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %result_V_c, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_4 : Operation 61 [1/2] (0.00ns)   --->   "call fastcc void @Loop_neuronLoop_proc([1 x i32]* nocapture %layerWeigth_0_0_V, [1 x i32]* nocapture %layerWeigth_1_0_V, [1 x i32]* nocapture %layerWeigth_2_0_V, i32 %Ainputs_0_loc_chann, [1 x i32]* nocapture %layerWeigth_0_1_V, [1 x i32]* nocapture %layerWeigth_1_1_V, [1 x i32]* nocapture %layerWeigth_2_1_V, i32 %Ainputs_1_loc_chann, [1 x i32]* nocapture %layerWeigth_0_2_V, [1 x i32]* nocapture %layerWeigth_1_2_V, [1 x i32]* nocapture %layerWeigth_2_2_V, i32 %Ainputs_2_loc_chann, [1 x i32]* nocapture %bias_0_V, [1 x i32]* nocapture %bias_1_V, [1 x i32]* nocapture %bias_2_V, [1 x i32]* nocapture %outputLayerWeigth_0_V, [1 x i32]* nocapture %outputLayerWeigth_1_V, [1 x i32]* nocapture %outputLayerWeigth_2_V, [1 x i32]* nocapture %outputLayerBias_V, i32* %Output_r, i32* nocapture %result_V_c)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 62 [1/1] (0.00ns)   --->   "ret void" [ANN/ANN.cpp:60]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 4.63ns
+The critical path consists of the following:
+	s_axi read on port 'result_V' [22]  (1 ns)
+	'call' operation ('tmp') to 'Loop_memcpy.Ainputs.7' [72]  (3.63 ns)
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+ <State 4>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

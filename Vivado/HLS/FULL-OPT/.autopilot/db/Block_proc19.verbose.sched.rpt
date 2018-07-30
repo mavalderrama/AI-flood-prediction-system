@@ -1,0 +1,134 @@
+
+
+================================================================
+== Vivado HLS Report for 'Block_proc19'
+================================================================
+* Date:           Sun May  6 22:50:50 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        ANN
+* Solution:       FULL-OPT
+* Product family: zynq
+* Target device:  xc7z010clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   6.67|      6.56|        0.83|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   67|   67|   67|   67|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+
+* FSM state operations: 
+
+ <State 1> : 0.00ns
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%layerResult_01 = alloca [3 x i26], align 4"
+ST_1 : Operation 5 [2/2] (0.00ns)   --->   "%layerResult_1_s = call fastcc i26 @ANN([3 x i32]* %inputs_V, [9 x i32]* %layerWeigth_V, [3 x i32]* %bias_V, [3 x i32]* %outputLayerWeigth_V, [1 x i32]* %outputLayerBias_V, [3 x i26]* %layerResult_01)" [ANN/ANN.cpp:10]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 2> : 3.67ns
+ST_2 : Operation 6 [1/2] (3.67ns)   --->   "%layerResult_1_s = call fastcc i26 @ANN([3 x i32]* %inputs_V, [9 x i32]* %layerWeigth_V, [3 x i32]* %bias_V, [3 x i32]* %outputLayerWeigth_V, [1 x i32]* %outputLayerBias_V, [3 x i26]* %layerResult_01)" [ANN/ANN.cpp:10]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 3> : 2.32ns
+ST_3 : Operation 7 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecMemCore([3 x i32]* %inputs_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_3 : Operation 8 [1/1] (0.00ns)   --->   "%empty_35 = call i32 (...)* @_ssdm_op_SpecMemCore([9 x i32]* %layerWeigth_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_3 : Operation 9 [1/1] (0.00ns)   --->   "%empty_36 = call i32 (...)* @_ssdm_op_SpecMemCore([3 x i32]* %bias_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_3 : Operation 10 [1/1] (0.00ns)   --->   "%empty_37 = call i32 (...)* @_ssdm_op_SpecMemCore([3 x i32]* %outputLayerWeigth_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_3 : Operation 11 [1/1] (0.00ns)   --->   "%empty_38 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %outputLayerBias_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_3 : Operation 12 [1/1] (0.00ns)   --->   "%empty_39 = call i32 (...)* @_ssdm_op_SpecMemCore([2 x i32]* %result_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_3 : Operation 13 [1/1] (0.00ns)   --->   "%extLd = sext i26 %layerResult_1_s to i32" [ANN/ANN.cpp:10]
+ST_3 : Operation 14 [1/1] (0.00ns)   --->   "%result_V_addr = getelementptr [2 x i32]* %result_V, i64 0, i64 0"
+ST_3 : Operation 15 [1/1] (2.32ns)   --->   "store i32 %extLd, i32* %result_V_addr, align 4" [ANN/ANN.cpp:11]   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 2> <RAM>
+ST_3 : Operation 16 [1/1] (0.00ns)   --->   "ret void"
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 6.67ns, clock uncertainty: 0.833ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 3.67ns
+The critical path consists of the following:
+	'call' operation ('layerResult_1_s', ANN/ANN.cpp:10) to 'ANN' [15]  (3.67 ns)
+
+ <State 3>: 2.32ns
+The critical path consists of the following:
+	'store' operation (ANN/ANN.cpp:11) of variable 'extLd', ANN/ANN.cpp:10 on array 'result_V' [18]  (2.32 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

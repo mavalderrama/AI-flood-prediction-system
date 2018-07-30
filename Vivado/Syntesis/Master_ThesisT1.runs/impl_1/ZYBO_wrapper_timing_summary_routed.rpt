@@ -1,0 +1,1542 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
+| Date         : Sat May 12 22:19:37 2018
+| Host         : DESKTOP-02DUCF9 running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -max_paths 10 -file ZYBO_wrapper_timing_summary_routed.rpt -rpx ZYBO_wrapper_timing_summary_routed.rpx -warn_on_violation
+| Design       : ZYBO_wrapper
+| Device       : 7z010-clg400
+| Speed File   : -1  PRODUCTION 1.11 2014-09-11
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  false
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock
+2. checking constant_clock
+3. checking pulse_width_clock
+4. checking unconstrained_internal_endpoints
+5. checking no_input_delay
+6. checking no_output_delay
+7. checking multiple_clock
+8. checking generated_clocks
+9. checking loops
+10. checking partial_input_delay
+11. checking partial_output_delay
+12. checking latch_loops
+
+1. checking no_clock
+--------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock
+--------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock
+-----------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints
+--------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay
+--------------------------
+ There are 0 input ports with no input delay specified.
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay
+---------------------------
+ There are 0 ports with no output delay specified.
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock
+--------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks
+----------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops
+-----------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay
+--------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay
+---------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops
+------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      1.248        0.000                      0                20162        0.018        0.000                      0                20162        3.750        0.000                       0                  6432  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock       Waveform(ns)       Period(ns)      Frequency(MHz)
+-----       ------------       ----------      --------------
+clk_fpga_0  {0.000 5.000}      10.000          100.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+clk_fpga_0          1.248        0.000                      0                20162        0.018        0.000                      0                20162        3.750        0.000                       0                  6432  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_fpga_0
+  To Clock:  clk_fpga_0
+
+Setup :            0  Failing Endpoints,  Worst Slack        1.248ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.018ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        3.750ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             1.248ns  (required time - arrival time)
+  Source:                 ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[29]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        8.590ns  (logic 7.523ns (87.575%)  route 1.067ns (12.425%))
+  Logic Levels:           11  (CARRY4=9 DSP48E1=1 LUT2=1)
+  Clock Path Skew:        -0.117ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.677ns = ( 12.677 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.058ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.207     1.207    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.101     1.308 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.750     3.058    ZYBO_i/TOPANN_0/inst/ap_clk
+    DSP48_X1Y24          DSP48E1                                      r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X1Y24          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.206     7.264 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.266    ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1_n_109
+    DSP48_X1Y25          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[4])
+                                                      1.518     8.784 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__2/P[4]
+                         net (fo=2, routed)           1.065     9.849    ZYBO_i/TOPANN_0/inst/p_1_in[21]
+    SLICE_X32Y56         LUT2 (Prop_lut2_I0_O)        0.124     9.973 r  ZYBO_i/TOPANN_0/inst/TOPANN_LUT2_13/O
+                         net (fo=1, routed)           0.000     9.973    ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365[23]_i_4_n_3
+    SLICE_X32Y56         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    10.506 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.506    ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365_reg[23]_i_1_n_3
+    SLICE_X32Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.623 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[3]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.623    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[3]_i_1_n_3
+    SLICE_X32Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.740 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[7]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.740    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[7]_i_1_n_3
+    SLICE_X32Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.857 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[11]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.857    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[11]_i_1_n_3
+    SLICE_X32Y60         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.974 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[15]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.974    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[15]_i_1_n_3
+    SLICE_X32Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.091 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.091    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[19]_i_1_n_3
+    SLICE_X32Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.208 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.208    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[23]_i_1_n_3
+    SLICE_X32Y63         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.325 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.325    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]_i_1_n_3
+    SLICE_X32Y64         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    11.648 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[31]_i_1/O[1]
+                         net (fo=1, routed)           0.000    11.648    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[31]_i_1_n_9
+    SLICE_X32Y64         FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[29]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.101    11.101    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.091    11.192 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.485    12.677    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X32Y64         FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[29]/C
+                         clock pessimism              0.264    12.941    
+                         clock uncertainty           -0.154    12.787    
+    SLICE_X32Y64         FDRE (Setup_fdre_C_D)        0.109    12.896    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[29]
+  -------------------------------------------------------------------
+                         required time                         12.896    
+                         arrival time                         -11.648    
+  -------------------------------------------------------------------
+                         slack                                  1.248    
+
+Slack (MET) :             1.256ns  (required time - arrival time)
+  Source:                 ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[31]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        8.582ns  (logic 7.515ns (87.563%)  route 1.067ns (12.437%))
+  Logic Levels:           11  (CARRY4=9 DSP48E1=1 LUT2=1)
+  Clock Path Skew:        -0.117ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.677ns = ( 12.677 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.058ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.207     1.207    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.101     1.308 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.750     3.058    ZYBO_i/TOPANN_0/inst/ap_clk
+    DSP48_X1Y24          DSP48E1                                      r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X1Y24          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.206     7.264 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.266    ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1_n_109
+    DSP48_X1Y25          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[4])
+                                                      1.518     8.784 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__2/P[4]
+                         net (fo=2, routed)           1.065     9.849    ZYBO_i/TOPANN_0/inst/p_1_in[21]
+    SLICE_X32Y56         LUT2 (Prop_lut2_I0_O)        0.124     9.973 r  ZYBO_i/TOPANN_0/inst/TOPANN_LUT2_13/O
+                         net (fo=1, routed)           0.000     9.973    ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365[23]_i_4_n_3
+    SLICE_X32Y56         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    10.506 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.506    ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365_reg[23]_i_1_n_3
+    SLICE_X32Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.623 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[3]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.623    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[3]_i_1_n_3
+    SLICE_X32Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.740 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[7]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.740    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[7]_i_1_n_3
+    SLICE_X32Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.857 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[11]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.857    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[11]_i_1_n_3
+    SLICE_X32Y60         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.974 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[15]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.974    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[15]_i_1_n_3
+    SLICE_X32Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.091 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.091    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[19]_i_1_n_3
+    SLICE_X32Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.208 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.208    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[23]_i_1_n_3
+    SLICE_X32Y63         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.325 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.325    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]_i_1_n_3
+    SLICE_X32Y64         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    11.640 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[31]_i_1/O[3]
+                         net (fo=1, routed)           0.000    11.640    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[31]_i_1_n_7
+    SLICE_X32Y64         FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[31]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.101    11.101    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.091    11.192 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.485    12.677    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X32Y64         FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[31]/C
+                         clock pessimism              0.264    12.941    
+                         clock uncertainty           -0.154    12.787    
+    SLICE_X32Y64         FDRE (Setup_fdre_C_D)        0.109    12.896    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[31]
+  -------------------------------------------------------------------
+                         required time                         12.896    
+                         arrival time                         -11.640    
+  -------------------------------------------------------------------
+                         slack                                  1.256    
+
+Slack (MET) :             1.275ns  (required time - arrival time)
+  Source:                 ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[29]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        8.513ns  (logic 7.492ns (88.008%)  route 1.021ns (11.992%))
+  Logic Levels:           12  (CARRY4=10 DSP48E1=1 LUT2=1)
+  Clock Path Skew:        -0.121ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.683ns = ( 12.683 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.068ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.207     1.207    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.101     1.308 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.760     3.068    ZYBO_i/TOPANN_0/inst/ap_clk
+    DSP48_X0Y22          DSP48E1                                      r  ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y22          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.206     7.274 r  ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.276    ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1_n_109
+    DSP48_X0Y23          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[1])
+                                                      1.518     8.794 r  ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__2/P[1]
+                         net (fo=2, routed)           1.019     9.812    ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__2_n_107
+    SLICE_X9Y56          LUT2 (Prop_lut2_I0_O)        0.124     9.936 r  ZYBO_i/TOPANN_0/inst/TOPANN_LUT2_49/O
+                         net (fo=1, routed)           0.000     9.936    ZYBO_i/TOPANN_0/inst/tmp_32_reg_1276[19]_i_3_n_3
+    SLICE_X9Y56          CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    10.334 r  ZYBO_i/TOPANN_0/inst/tmp_32_reg_1276_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.334    ZYBO_i/TOPANN_0/inst/tmp_32_reg_1276_reg[19]_i_1_n_3
+    SLICE_X9Y57          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.448 r  ZYBO_i/TOPANN_0/inst/p_Val2_7_reg_1265_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.448    ZYBO_i/TOPANN_0/inst/p_Val2_7_reg_1265_reg[23]_i_1_n_3
+    SLICE_X9Y58          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.562 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[3]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.562    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[3]_i_1_n_3
+    SLICE_X9Y59          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.676 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[7]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.676    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[7]_i_1_n_3
+    SLICE_X9Y60          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.790 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[11]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.790    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[11]_i_1_n_3
+    SLICE_X9Y61          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.904 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[15]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.904    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[15]_i_1_n_3
+    SLICE_X9Y62          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.018 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.018    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[19]_i_1_n_3
+    SLICE_X9Y63          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.132 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.132    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[23]_i_1_n_3
+    SLICE_X9Y64          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.246 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.246    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[27]_i_1_n_3
+    SLICE_X9Y65          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    11.580 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[31]_i_1/O[1]
+                         net (fo=1, routed)           0.000    11.580    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[31]_i_1_n_9
+    SLICE_X9Y65          FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[29]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.101    11.101    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.091    11.192 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.491    12.683    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X9Y65          FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[29]/C
+                         clock pessimism              0.264    12.947    
+                         clock uncertainty           -0.154    12.793    
+    SLICE_X9Y65          FDRE (Setup_fdre_C_D)        0.062    12.855    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[29]
+  -------------------------------------------------------------------
+                         required time                         12.855    
+                         arrival time                         -11.580    
+  -------------------------------------------------------------------
+                         slack                                  1.275    
+
+Slack (MET) :             1.296ns  (required time - arrival time)
+  Source:                 ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[31]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        8.492ns  (logic 7.471ns (87.978%)  route 1.021ns (12.022%))
+  Logic Levels:           12  (CARRY4=10 DSP48E1=1 LUT2=1)
+  Clock Path Skew:        -0.121ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.683ns = ( 12.683 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.068ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.207     1.207    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.101     1.308 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.760     3.068    ZYBO_i/TOPANN_0/inst/ap_clk
+    DSP48_X0Y22          DSP48E1                                      r  ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y22          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.206     7.274 r  ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.276    ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1_n_109
+    DSP48_X0Y23          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[1])
+                                                      1.518     8.794 r  ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__2/P[1]
+                         net (fo=2, routed)           1.019     9.812    ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__2_n_107
+    SLICE_X9Y56          LUT2 (Prop_lut2_I0_O)        0.124     9.936 r  ZYBO_i/TOPANN_0/inst/TOPANN_LUT2_49/O
+                         net (fo=1, routed)           0.000     9.936    ZYBO_i/TOPANN_0/inst/tmp_32_reg_1276[19]_i_3_n_3
+    SLICE_X9Y56          CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    10.334 r  ZYBO_i/TOPANN_0/inst/tmp_32_reg_1276_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.334    ZYBO_i/TOPANN_0/inst/tmp_32_reg_1276_reg[19]_i_1_n_3
+    SLICE_X9Y57          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.448 r  ZYBO_i/TOPANN_0/inst/p_Val2_7_reg_1265_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.448    ZYBO_i/TOPANN_0/inst/p_Val2_7_reg_1265_reg[23]_i_1_n_3
+    SLICE_X9Y58          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.562 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[3]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.562    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[3]_i_1_n_3
+    SLICE_X9Y59          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.676 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[7]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.676    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[7]_i_1_n_3
+    SLICE_X9Y60          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.790 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[11]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.790    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[11]_i_1_n_3
+    SLICE_X9Y61          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.904 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[15]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.904    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[15]_i_1_n_3
+    SLICE_X9Y62          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.018 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.018    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[19]_i_1_n_3
+    SLICE_X9Y63          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.132 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.132    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[23]_i_1_n_3
+    SLICE_X9Y64          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.246 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.246    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[27]_i_1_n_3
+    SLICE_X9Y65          CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313    11.559 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[31]_i_1/O[3]
+                         net (fo=1, routed)           0.000    11.559    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[31]_i_1_n_7
+    SLICE_X9Y65          FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[31]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.101    11.101    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.091    11.192 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.491    12.683    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X9Y65          FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[31]/C
+                         clock pessimism              0.264    12.947    
+                         clock uncertainty           -0.154    12.793    
+    SLICE_X9Y65          FDRE (Setup_fdre_C_D)        0.062    12.855    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[31]
+  -------------------------------------------------------------------
+                         required time                         12.855    
+                         arrival time                         -11.559    
+  -------------------------------------------------------------------
+                         slack                                  1.296    
+
+Slack (MET) :             1.332ns  (required time - arrival time)
+  Source:                 ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[30]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        8.506ns  (logic 7.439ns (87.452%)  route 1.067ns (12.548%))
+  Logic Levels:           11  (CARRY4=9 DSP48E1=1 LUT2=1)
+  Clock Path Skew:        -0.117ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.677ns = ( 12.677 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.058ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.207     1.207    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.101     1.308 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.750     3.058    ZYBO_i/TOPANN_0/inst/ap_clk
+    DSP48_X1Y24          DSP48E1                                      r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X1Y24          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.206     7.264 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.266    ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1_n_109
+    DSP48_X1Y25          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[4])
+                                                      1.518     8.784 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__2/P[4]
+                         net (fo=2, routed)           1.065     9.849    ZYBO_i/TOPANN_0/inst/p_1_in[21]
+    SLICE_X32Y56         LUT2 (Prop_lut2_I0_O)        0.124     9.973 r  ZYBO_i/TOPANN_0/inst/TOPANN_LUT2_13/O
+                         net (fo=1, routed)           0.000     9.973    ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365[23]_i_4_n_3
+    SLICE_X32Y56         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    10.506 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.506    ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365_reg[23]_i_1_n_3
+    SLICE_X32Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.623 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[3]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.623    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[3]_i_1_n_3
+    SLICE_X32Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.740 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[7]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.740    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[7]_i_1_n_3
+    SLICE_X32Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.857 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[11]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.857    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[11]_i_1_n_3
+    SLICE_X32Y60         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.974 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[15]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.974    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[15]_i_1_n_3
+    SLICE_X32Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.091 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.091    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[19]_i_1_n_3
+    SLICE_X32Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.208 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.208    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[23]_i_1_n_3
+    SLICE_X32Y63         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.325 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.325    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]_i_1_n_3
+    SLICE_X32Y64         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    11.564 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[31]_i_1/O[2]
+                         net (fo=1, routed)           0.000    11.564    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[31]_i_1_n_8
+    SLICE_X32Y64         FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[30]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.101    11.101    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.091    11.192 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.485    12.677    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X32Y64         FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[30]/C
+                         clock pessimism              0.264    12.941    
+                         clock uncertainty           -0.154    12.787    
+    SLICE_X32Y64         FDRE (Setup_fdre_C_D)        0.109    12.896    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[30]
+  -------------------------------------------------------------------
+                         required time                         12.896    
+                         arrival time                         -11.564    
+  -------------------------------------------------------------------
+                         slack                                  1.332    
+
+Slack (MET) :             1.352ns  (required time - arrival time)
+  Source:                 ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[28]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        8.486ns  (logic 7.419ns (87.423%)  route 1.067ns (12.577%))
+  Logic Levels:           11  (CARRY4=9 DSP48E1=1 LUT2=1)
+  Clock Path Skew:        -0.117ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.677ns = ( 12.677 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.058ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.207     1.207    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.101     1.308 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.750     3.058    ZYBO_i/TOPANN_0/inst/ap_clk
+    DSP48_X1Y24          DSP48E1                                      r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X1Y24          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.206     7.264 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.266    ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1_n_109
+    DSP48_X1Y25          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[4])
+                                                      1.518     8.784 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__2/P[4]
+                         net (fo=2, routed)           1.065     9.849    ZYBO_i/TOPANN_0/inst/p_1_in[21]
+    SLICE_X32Y56         LUT2 (Prop_lut2_I0_O)        0.124     9.973 r  ZYBO_i/TOPANN_0/inst/TOPANN_LUT2_13/O
+                         net (fo=1, routed)           0.000     9.973    ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365[23]_i_4_n_3
+    SLICE_X32Y56         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    10.506 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.506    ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365_reg[23]_i_1_n_3
+    SLICE_X32Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.623 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[3]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.623    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[3]_i_1_n_3
+    SLICE_X32Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.740 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[7]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.740    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[7]_i_1_n_3
+    SLICE_X32Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.857 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[11]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.857    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[11]_i_1_n_3
+    SLICE_X32Y60         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.974 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[15]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.974    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[15]_i_1_n_3
+    SLICE_X32Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.091 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.091    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[19]_i_1_n_3
+    SLICE_X32Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.208 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.208    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[23]_i_1_n_3
+    SLICE_X32Y63         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.325 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.325    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]_i_1_n_3
+    SLICE_X32Y64         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.219    11.544 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[31]_i_1/O[0]
+                         net (fo=1, routed)           0.000    11.544    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[31]_i_1_n_10
+    SLICE_X32Y64         FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[28]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.101    11.101    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.091    11.192 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.485    12.677    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X32Y64         FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[28]/C
+                         clock pessimism              0.264    12.941    
+                         clock uncertainty           -0.154    12.787    
+    SLICE_X32Y64         FDRE (Setup_fdre_C_D)        0.109    12.896    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[28]
+  -------------------------------------------------------------------
+                         required time                         12.896    
+                         arrival time                         -11.544    
+  -------------------------------------------------------------------
+                         slack                                  1.352    
+
+Slack (MET) :             1.365ns  (required time - arrival time)
+  Source:                 ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[25]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        8.473ns  (logic 7.406ns (87.403%)  route 1.067ns (12.597%))
+  Logic Levels:           10  (CARRY4=8 DSP48E1=1 LUT2=1)
+  Clock Path Skew:        -0.117ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.677ns = ( 12.677 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.058ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.207     1.207    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.101     1.308 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.750     3.058    ZYBO_i/TOPANN_0/inst/ap_clk
+    DSP48_X1Y24          DSP48E1                                      r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X1Y24          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.206     7.264 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.266    ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1_n_109
+    DSP48_X1Y25          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[4])
+                                                      1.518     8.784 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__2/P[4]
+                         net (fo=2, routed)           1.065     9.849    ZYBO_i/TOPANN_0/inst/p_1_in[21]
+    SLICE_X32Y56         LUT2 (Prop_lut2_I0_O)        0.124     9.973 r  ZYBO_i/TOPANN_0/inst/TOPANN_LUT2_13/O
+                         net (fo=1, routed)           0.000     9.973    ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365[23]_i_4_n_3
+    SLICE_X32Y56         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    10.506 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.506    ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365_reg[23]_i_1_n_3
+    SLICE_X32Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.623 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[3]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.623    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[3]_i_1_n_3
+    SLICE_X32Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.740 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[7]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.740    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[7]_i_1_n_3
+    SLICE_X32Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.857 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[11]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.857    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[11]_i_1_n_3
+    SLICE_X32Y60         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.974 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[15]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.974    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[15]_i_1_n_3
+    SLICE_X32Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.091 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.091    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[19]_i_1_n_3
+    SLICE_X32Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.208 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.208    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[23]_i_1_n_3
+    SLICE_X32Y63         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    11.531 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]_i_1/O[1]
+                         net (fo=1, routed)           0.000    11.531    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]_i_1_n_9
+    SLICE_X32Y63         FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[25]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.101    11.101    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.091    11.192 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.485    12.677    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X32Y63         FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[25]/C
+                         clock pessimism              0.264    12.941    
+                         clock uncertainty           -0.154    12.787    
+    SLICE_X32Y63         FDRE (Setup_fdre_C_D)        0.109    12.896    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[25]
+  -------------------------------------------------------------------
+                         required time                         12.896    
+                         arrival time                         -11.531    
+  -------------------------------------------------------------------
+                         slack                                  1.365    
+
+Slack (MET) :             1.370ns  (required time - arrival time)
+  Source:                 ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[30]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        8.418ns  (logic 7.397ns (87.873%)  route 1.021ns (12.127%))
+  Logic Levels:           12  (CARRY4=10 DSP48E1=1 LUT2=1)
+  Clock Path Skew:        -0.121ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.683ns = ( 12.683 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.068ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.207     1.207    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.101     1.308 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.760     3.068    ZYBO_i/TOPANN_0/inst/ap_clk
+    DSP48_X0Y22          DSP48E1                                      r  ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y22          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.206     7.274 r  ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.276    ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1_n_109
+    DSP48_X0Y23          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[1])
+                                                      1.518     8.794 r  ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__2/P[1]
+                         net (fo=2, routed)           1.019     9.812    ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__2_n_107
+    SLICE_X9Y56          LUT2 (Prop_lut2_I0_O)        0.124     9.936 r  ZYBO_i/TOPANN_0/inst/TOPANN_LUT2_49/O
+                         net (fo=1, routed)           0.000     9.936    ZYBO_i/TOPANN_0/inst/tmp_32_reg_1276[19]_i_3_n_3
+    SLICE_X9Y56          CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    10.334 r  ZYBO_i/TOPANN_0/inst/tmp_32_reg_1276_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.334    ZYBO_i/TOPANN_0/inst/tmp_32_reg_1276_reg[19]_i_1_n_3
+    SLICE_X9Y57          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.448 r  ZYBO_i/TOPANN_0/inst/p_Val2_7_reg_1265_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.448    ZYBO_i/TOPANN_0/inst/p_Val2_7_reg_1265_reg[23]_i_1_n_3
+    SLICE_X9Y58          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.562 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[3]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.562    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[3]_i_1_n_3
+    SLICE_X9Y59          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.676 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[7]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.676    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[7]_i_1_n_3
+    SLICE_X9Y60          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.790 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[11]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.790    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[11]_i_1_n_3
+    SLICE_X9Y61          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.904 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[15]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.904    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[15]_i_1_n_3
+    SLICE_X9Y62          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.018 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.018    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[19]_i_1_n_3
+    SLICE_X9Y63          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.132 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.132    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[23]_i_1_n_3
+    SLICE_X9Y64          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.246 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.246    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[27]_i_1_n_3
+    SLICE_X9Y65          CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    11.485 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[31]_i_1/O[2]
+                         net (fo=1, routed)           0.000    11.485    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[31]_i_1_n_8
+    SLICE_X9Y65          FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[30]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.101    11.101    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.091    11.192 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.491    12.683    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X9Y65          FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[30]/C
+                         clock pessimism              0.264    12.947    
+                         clock uncertainty           -0.154    12.793    
+    SLICE_X9Y65          FDRE (Setup_fdre_C_D)        0.062    12.855    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[30]
+  -------------------------------------------------------------------
+                         required time                         12.855    
+                         arrival time                         -11.485    
+  -------------------------------------------------------------------
+                         slack                                  1.370    
+
+Slack (MET) :             1.373ns  (required time - arrival time)
+  Source:                 ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        8.465ns  (logic 7.398ns (87.392%)  route 1.067ns (12.608%))
+  Logic Levels:           10  (CARRY4=8 DSP48E1=1 LUT2=1)
+  Clock Path Skew:        -0.117ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.677ns = ( 12.677 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.058ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.207     1.207    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.101     1.308 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.750     3.058    ZYBO_i/TOPANN_0/inst/ap_clk
+    DSP48_X1Y24          DSP48E1                                      r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X1Y24          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.206     7.264 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.266    ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__1_n_109
+    DSP48_X1Y25          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[4])
+                                                      1.518     8.784 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_fu_961_p2__2/P[4]
+                         net (fo=2, routed)           1.065     9.849    ZYBO_i/TOPANN_0/inst/p_1_in[21]
+    SLICE_X32Y56         LUT2 (Prop_lut2_I0_O)        0.124     9.973 r  ZYBO_i/TOPANN_0/inst/TOPANN_LUT2_13/O
+                         net (fo=1, routed)           0.000     9.973    ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365[23]_i_4_n_3
+    SLICE_X32Y56         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    10.506 r  ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.506    ZYBO_i/TOPANN_0/inst/p_Val2_2_reg_1365_reg[23]_i_1_n_3
+    SLICE_X32Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.623 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[3]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.623    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[3]_i_1_n_3
+    SLICE_X32Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.740 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[7]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.740    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[7]_i_1_n_3
+    SLICE_X32Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.857 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[11]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.857    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[11]_i_1_n_3
+    SLICE_X32Y60         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.974 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[15]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.974    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[15]_i_1_n_3
+    SLICE_X32Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.091 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.091    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[19]_i_1_n_3
+    SLICE_X32Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.208 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.208    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[23]_i_1_n_3
+    SLICE_X32Y63         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    11.523 r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]_i_1/O[3]
+                         net (fo=1, routed)           0.000    11.523    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]_i_1_n_7
+    SLICE_X32Y63         FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.101    11.101    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.091    11.192 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.485    12.677    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X32Y63         FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]/C
+                         clock pessimism              0.264    12.941    
+                         clock uncertainty           -0.154    12.787    
+    SLICE_X32Y63         FDRE (Setup_fdre_C_D)        0.109    12.896    ZYBO_i/TOPANN_0/inst/p_Val2_3_reg_1371_reg[27]
+  -------------------------------------------------------------------
+                         required time                         12.896    
+                         arrival time                         -11.523    
+  -------------------------------------------------------------------
+                         slack                                  1.373    
+
+Slack (MET) :             1.386ns  (required time - arrival time)
+  Source:                 ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[28]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        8.402ns  (logic 7.381ns (87.850%)  route 1.021ns (12.150%))
+  Logic Levels:           12  (CARRY4=10 DSP48E1=1 LUT2=1)
+  Clock Path Skew:        -0.121ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.683ns = ( 12.683 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.068ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.207     1.207    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.101     1.308 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.760     3.068    ZYBO_i/TOPANN_0/inst/ap_clk
+    DSP48_X0Y22          DSP48E1                                      r  ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X0Y22          DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.206     7.274 r  ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1/PCOUT[47]
+                         net (fo=1, routed)           0.002     7.276    ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__1_n_109
+    DSP48_X0Y23          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[1])
+                                                      1.518     8.794 r  ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__2/P[1]
+                         net (fo=2, routed)           1.019     9.812    ZYBO_i/TOPANN_0/inst/p_Val2_7_fu_595_p2__2_n_107
+    SLICE_X9Y56          LUT2 (Prop_lut2_I0_O)        0.124     9.936 r  ZYBO_i/TOPANN_0/inst/TOPANN_LUT2_49/O
+                         net (fo=1, routed)           0.000     9.936    ZYBO_i/TOPANN_0/inst/tmp_32_reg_1276[19]_i_3_n_3
+    SLICE_X9Y56          CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    10.334 r  ZYBO_i/TOPANN_0/inst/tmp_32_reg_1276_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.334    ZYBO_i/TOPANN_0/inst/tmp_32_reg_1276_reg[19]_i_1_n_3
+    SLICE_X9Y57          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.448 r  ZYBO_i/TOPANN_0/inst/p_Val2_7_reg_1265_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.448    ZYBO_i/TOPANN_0/inst/p_Val2_7_reg_1265_reg[23]_i_1_n_3
+    SLICE_X9Y58          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.562 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[3]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.562    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[3]_i_1_n_3
+    SLICE_X9Y59          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.676 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[7]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.676    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[7]_i_1_n_3
+    SLICE_X9Y60          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.790 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[11]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.790    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[11]_i_1_n_3
+    SLICE_X9Y61          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.904 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[15]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    10.904    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[15]_i_1_n_3
+    SLICE_X9Y62          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.018 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[19]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.018    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[19]_i_1_n_3
+    SLICE_X9Y63          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.132 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[23]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.132    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[23]_i_1_n_3
+    SLICE_X9Y64          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    11.246 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[27]_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.246    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[27]_i_1_n_3
+    SLICE_X9Y65          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.223    11.469 r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[31]_i_1/O[0]
+                         net (fo=1, routed)           0.000    11.469    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[31]_i_1_n_10
+    SLICE_X9Y65          FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[28]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.101    11.101    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.091    11.192 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        1.491    12.683    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X9Y65          FDRE                                         r  ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[28]/C
+                         clock pessimism              0.264    12.947    
+                         clock uncertainty           -0.154    12.793    
+    SLICE_X9Y65          FDRE (Setup_fdre_C_D)        0.062    12.855    ZYBO_i/TOPANN_0/inst/p_Val2_8_reg_1271_reg[28]
+  -------------------------------------------------------------------
+                         required time                         12.855    
+                         arrival time                         -11.469    
+  -------------------------------------------------------------------
+                         slack                                  1.386    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.018ns  (arrival time - required time)
+  Source:                 ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rdata/data_p1_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/Ainputs_2_V_7_reg_1202_reg[6]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.361ns  (logic 0.141ns (39.070%)  route 0.220ns (60.930%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.267ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.200ns
+    Source Clock Delay      (SCD):    0.899ns
+    Clock Pessimism Removal (CPR):    0.034ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.026     0.341 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.558     0.899    ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rdata/ap_clk
+    SLICE_X22Y54         FDRE                                         r  ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rdata/data_p1_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X22Y54         FDRE (Prop_fdre_C_Q)         0.141     1.040 r  ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rdata/data_p1_reg[6]/Q
+                         net (fo=1, routed)           0.220     1.259    ZYBO_i/TOPANN_0/inst/INPUTS_RDATA[6]
+    SLICE_X17Y55         FDRE                                         r  ZYBO_i/TOPANN_0/inst/Ainputs_2_V_7_reg_1202_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.029     0.370 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.830     1.200    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X17Y55         FDRE                                         r  ZYBO_i/TOPANN_0/inst/Ainputs_2_V_7_reg_1202_reg[6]/C
+                         clock pessimism             -0.034     1.166    
+    SLICE_X17Y55         FDRE (Hold_fdre_C_D)         0.076     1.242    ZYBO_i/TOPANN_0/inst/Ainputs_2_V_7_reg_1202_reg[6]
+  -------------------------------------------------------------------
+                         required time                         -1.242    
+                         arrival time                           1.259    
+  -------------------------------------------------------------------
+                         slack                                  0.018    
+
+Slack (MET) :             0.021ns  (arrival time - required time)
+  Source:                 ZYBO_i/TOPANN_0/inst/result_V3_reg_1153_reg[22]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/OUTPUTS_addr_reg_1169_reg[22]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.308ns  (logic 0.148ns (47.977%)  route 0.160ns (52.023%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.264ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.198ns
+    Source Clock Delay      (SCD):    0.900ns
+    Clock Pessimism Removal (CPR):    0.034ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.026     0.341 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.559     0.900    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X20Y50         FDRE                                         r  ZYBO_i/TOPANN_0/inst/result_V3_reg_1153_reg[22]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X20Y50         FDRE (Prop_fdre_C_Q)         0.148     1.048 r  ZYBO_i/TOPANN_0/inst/result_V3_reg_1153_reg[22]/Q
+                         net (fo=1, routed)           0.160     1.208    ZYBO_i/TOPANN_0/inst/result_V3_reg_1153[22]
+    SLICE_X22Y50         FDRE                                         r  ZYBO_i/TOPANN_0/inst/OUTPUTS_addr_reg_1169_reg[22]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.029     0.370 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.828     1.198    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X22Y50         FDRE                                         r  ZYBO_i/TOPANN_0/inst/OUTPUTS_addr_reg_1169_reg[22]/C
+                         clock pessimism             -0.034     1.164    
+    SLICE_X22Y50         FDRE (Hold_fdre_C_D)         0.023     1.187    ZYBO_i/TOPANN_0/inst/OUTPUTS_addr_reg_1169_reg[22]
+  -------------------------------------------------------------------
+                         required time                         -1.187    
+                         arrival time                           1.208    
+  -------------------------------------------------------------------
+                         slack                                  0.021    
+
+Slack (MET) :             0.024ns  (arrival time - required time)
+  Source:                 ZYBO_i/TOPANN_0/inst/result_V3_reg_1153_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/OUTPUTS_addr_reg_1169_reg[7]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.305ns  (logic 0.148ns (48.484%)  route 0.157ns (51.516%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.263ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.199ns
+    Source Clock Delay      (SCD):    0.902ns
+    Clock Pessimism Removal (CPR):    0.034ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.026     0.341 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.561     0.902    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X20Y49         FDRE                                         r  ZYBO_i/TOPANN_0/inst/result_V3_reg_1153_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X20Y49         FDRE (Prop_fdre_C_Q)         0.148     1.049 r  ZYBO_i/TOPANN_0/inst/result_V3_reg_1153_reg[7]/Q
+                         net (fo=1, routed)           0.157     1.207    ZYBO_i/TOPANN_0/inst/result_V3_reg_1153[7]
+    SLICE_X22Y48         FDRE                                         r  ZYBO_i/TOPANN_0/inst/OUTPUTS_addr_reg_1169_reg[7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.029     0.370 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.829     1.199    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X22Y48         FDRE                                         r  ZYBO_i/TOPANN_0/inst/OUTPUTS_addr_reg_1169_reg[7]/C
+                         clock pessimism             -0.034     1.165    
+    SLICE_X22Y48         FDRE (Hold_fdre_C_D)         0.018     1.183    ZYBO_i/TOPANN_0/inst/OUTPUTS_addr_reg_1169_reg[7]
+  -------------------------------------------------------------------
+                         required time                         -1.183    
+                         arrival time                           1.207    
+  -------------------------------------------------------------------
+                         slack                                  0.024    
+
+Slack (MET) :             0.025ns  (arrival time - required time)
+  Source:                 ZYBO_i/axi_smc/inst/switchboards/ar_switchboard/inst/gen_mi[0].inst_opipe_payld/gen_pipe[1].pipe_reg[1][99]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMB_D1/I
+                            (rising edge-triggered cell RAMD32 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.359ns  (logic 0.128ns (35.662%)  route 0.231ns (64.338%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.263ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.188ns
+    Source Clock Delay      (SCD):    0.891ns
+    Clock Pessimism Removal (CPR):    0.034ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.026     0.341 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.550     0.891    ZYBO_i/axi_smc/inst/switchboards/ar_switchboard/inst/gen_mi[0].inst_opipe_payld/aclk
+    SLICE_X25Y21         FDRE                                         r  ZYBO_i/axi_smc/inst/switchboards/ar_switchboard/inst/gen_mi[0].inst_opipe_payld/gen_pipe[1].pipe_reg[1][99]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X25Y21         FDRE (Prop_fdre_C_Q)         0.128     1.018 r  ZYBO_i/axi_smc/inst/switchboards/ar_switchboard/inst/gen_mi[0].inst_opipe_payld/gen_pipe[1].pipe_reg[1][99]/Q
+                         net (fo=1, routed)           0.231     1.249    ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/DIB1
+    SLICE_X16Y22         RAMD32                                       r  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMB_D1/I
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.029     0.370 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.818     1.188    ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/WCLK
+    SLICE_X16Y22         RAMD32                                       r  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMB_D1/CLK
+                         clock pessimism             -0.034     1.154    
+    SLICE_X16Y22         RAMD32 (Hold_ramd32_CLK_I)
+                                                      0.071     1.225    ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMB_D1
+  -------------------------------------------------------------------
+                         required time                         -1.225    
+                         arrival time                           1.249    
+  -------------------------------------------------------------------
+                         slack                                  0.025    
+
+Slack (MET) :             0.025ns  (arrival time - required time)
+  Source:                 ZYBO_i/TOPANN_0/inst/TOPANN_OUTPUTS_m_axi_U/bus_write/rs_wreq/data_p1_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/TOPANN_OUTPUTS_m_axi_U/bus_write/fifo_wreq/mem_reg[4][8]_srl5/D
+                            (rising edge-triggered cell SRL16E clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.396ns  (logic 0.164ns (41.426%)  route 0.232ns (58.574%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.268ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.202ns
+    Source Clock Delay      (SCD):    0.905ns
+    Clock Pessimism Removal (CPR):    0.029ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.026     0.341 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.564     0.905    ZYBO_i/TOPANN_0/inst/TOPANN_OUTPUTS_m_axi_U/bus_write/rs_wreq/ap_clk
+    SLICE_X28Y48         FDRE                                         r  ZYBO_i/TOPANN_0/inst/TOPANN_OUTPUTS_m_axi_U/bus_write/rs_wreq/data_p1_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X28Y48         FDRE (Prop_fdre_C_Q)         0.164     1.069 r  ZYBO_i/TOPANN_0/inst/TOPANN_OUTPUTS_m_axi_U/bus_write/rs_wreq/data_p1_reg[8]/Q
+                         net (fo=1, routed)           0.232     1.300    ZYBO_i/TOPANN_0/inst/TOPANN_OUTPUTS_m_axi_U/bus_write/fifo_wreq/data_p1_reg[29][8]
+    SLICE_X34Y50         SRL16E                                       r  ZYBO_i/TOPANN_0/inst/TOPANN_OUTPUTS_m_axi_U/bus_write/fifo_wreq/mem_reg[4][8]_srl5/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.029     0.370 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.832     1.202    ZYBO_i/TOPANN_0/inst/TOPANN_OUTPUTS_m_axi_U/bus_write/fifo_wreq/ap_clk
+    SLICE_X34Y50         SRL16E                                       r  ZYBO_i/TOPANN_0/inst/TOPANN_OUTPUTS_m_axi_U/bus_write/fifo_wreq/mem_reg[4][8]_srl5/CLK
+                         clock pessimism             -0.029     1.173    
+    SLICE_X34Y50         SRL16E (Hold_srl16e_CLK_D)
+                                                      0.102     1.275    ZYBO_i/TOPANN_0/inst/TOPANN_OUTPUTS_m_axi_U/bus_write/fifo_wreq/mem_reg[4][8]_srl5
+  -------------------------------------------------------------------
+                         required time                         -1.275    
+                         arrival time                           1.300    
+  -------------------------------------------------------------------
+                         slack                                  0.025    
+
+Slack (MET) :             0.026ns  (arrival time - required time)
+  Source:                 ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rreq/data_p1_reg[26]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/fifo_rreq/mem_reg[4][26]_srl5/D
+                            (rising edge-triggered cell SRL16E clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.383ns  (logic 0.164ns (42.816%)  route 0.219ns (57.184%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.263ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.199ns
+    Source Clock Delay      (SCD):    0.902ns
+    Clock Pessimism Removal (CPR):    0.034ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.026     0.341 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.561     0.902    ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rreq/ap_clk
+    SLICE_X20Y47         FDRE                                         r  ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rreq/data_p1_reg[26]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X20Y47         FDRE (Prop_fdre_C_Q)         0.164     1.066 r  ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rreq/data_p1_reg[26]/Q
+                         net (fo=1, routed)           0.219     1.285    ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/fifo_rreq/data_p1_reg[29][26]
+    SLICE_X24Y47         SRL16E                                       r  ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/fifo_rreq/mem_reg[4][26]_srl5/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.029     0.370 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.829     1.199    ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/fifo_rreq/ap_clk
+    SLICE_X24Y47         SRL16E                                       r  ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/fifo_rreq/mem_reg[4][26]_srl5/CLK
+                         clock pessimism             -0.034     1.165    
+    SLICE_X24Y47         SRL16E (Hold_srl16e_CLK_D)
+                                                      0.094     1.259    ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/fifo_rreq/mem_reg[4][26]_srl5
+  -------------------------------------------------------------------
+                         required time                         -1.259    
+                         arrival time                           1.285    
+  -------------------------------------------------------------------
+                         slack                                  0.026    
+
+Slack (MET) :             0.027ns  (arrival time - required time)
+  Source:                 ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rdata/data_p1_reg[24]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/Ainputs_2_V_7_reg_1202_reg[24]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.368ns  (logic 0.141ns (38.306%)  route 0.227ns (61.694%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.266ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.199ns
+    Source Clock Delay      (SCD):    0.899ns
+    Clock Pessimism Removal (CPR):    0.034ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.026     0.341 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.558     0.899    ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rdata/ap_clk
+    SLICE_X23Y55         FDRE                                         r  ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rdata/data_p1_reg[24]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X23Y55         FDRE (Prop_fdre_C_Q)         0.141     1.040 r  ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rdata/data_p1_reg[24]/Q
+                         net (fo=1, routed)           0.227     1.267    ZYBO_i/TOPANN_0/inst/INPUTS_RDATA[24]
+    SLICE_X19Y57         FDRE                                         r  ZYBO_i/TOPANN_0/inst/Ainputs_2_V_7_reg_1202_reg[24]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.029     0.370 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.829     1.199    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X19Y57         FDRE                                         r  ZYBO_i/TOPANN_0/inst/Ainputs_2_V_7_reg_1202_reg[24]/C
+                         clock pessimism             -0.034     1.165    
+    SLICE_X19Y57         FDRE (Hold_fdre_C_D)         0.075     1.240    ZYBO_i/TOPANN_0/inst/Ainputs_2_V_7_reg_1202_reg[24]
+  -------------------------------------------------------------------
+                         required time                         -1.240    
+                         arrival time                           1.267    
+  -------------------------------------------------------------------
+                         slack                                  0.027    
+
+Slack (MET) :             0.028ns  (arrival time - required time)
+  Source:                 ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rdata/data_p1_reg[27]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/TOPANN_0/inst/Ainputs_2_V_7_reg_1202_reg[27]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.358ns  (logic 0.141ns (39.426%)  route 0.217ns (60.574%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.266ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.199ns
+    Source Clock Delay      (SCD):    0.899ns
+    Clock Pessimism Removal (CPR):    0.034ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.026     0.341 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.558     0.899    ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rdata/ap_clk
+    SLICE_X22Y54         FDRE                                         r  ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rdata/data_p1_reg[27]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X22Y54         FDRE (Prop_fdre_C_Q)         0.141     1.040 r  ZYBO_i/TOPANN_0/inst/TOPANN_INPUTS_m_axi_U/bus_read/rs_rdata/data_p1_reg[27]/Q
+                         net (fo=1, routed)           0.217     1.256    ZYBO_i/TOPANN_0/inst/INPUTS_RDATA[27]
+    SLICE_X20Y56         FDRE                                         r  ZYBO_i/TOPANN_0/inst/Ainputs_2_V_7_reg_1202_reg[27]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.029     0.370 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.829     1.199    ZYBO_i/TOPANN_0/inst/ap_clk
+    SLICE_X20Y56         FDRE                                         r  ZYBO_i/TOPANN_0/inst/Ainputs_2_V_7_reg_1202_reg[27]/C
+                         clock pessimism             -0.034     1.165    
+    SLICE_X20Y56         FDRE (Hold_fdre_C_D)         0.063     1.228    ZYBO_i/TOPANN_0/inst/Ainputs_2_V_7_reg_1202_reg[27]
+  -------------------------------------------------------------------
+                         required time                         -1.228    
+                         arrival time                           1.256    
+  -------------------------------------------------------------------
+                         slack                                  0.028    
+
+Slack (MET) :             0.029ns  (arrival time - required time)
+  Source:                 ZYBO_i/axi_smc/inst/switchboards/ar_switchboard/inst/gen_mi[0].inst_opipe_payld/gen_pipe[1].pipe_reg[1][97]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMA_D1/I
+                            (rising edge-triggered cell RAMD32 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.362ns  (logic 0.128ns (35.378%)  route 0.234ns (64.622%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.265ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.188ns
+    Source Clock Delay      (SCD):    0.889ns
+    Clock Pessimism Removal (CPR):    0.034ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.026     0.341 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.548     0.889    ZYBO_i/axi_smc/inst/switchboards/ar_switchboard/inst/gen_mi[0].inst_opipe_payld/aclk
+    SLICE_X25Y23         FDRE                                         r  ZYBO_i/axi_smc/inst/switchboards/ar_switchboard/inst/gen_mi[0].inst_opipe_payld/gen_pipe[1].pipe_reg[1][97]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X25Y23         FDRE (Prop_fdre_C_Q)         0.128     1.016 r  ZYBO_i/axi_smc/inst/switchboards/ar_switchboard/inst/gen_mi[0].inst_opipe_payld/gen_pipe[1].pipe_reg[1][97]/Q
+                         net (fo=1, routed)           0.234     1.250    ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/DIA1
+    SLICE_X16Y22         RAMD32                                       r  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMA_D1/I
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.029     0.370 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.818     1.188    ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/WCLK
+    SLICE_X16Y22         RAMD32                                       r  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMA_D1/CLK
+                         clock pessimism             -0.034     1.154    
+    SLICE_X16Y22         RAMD32 (Hold_ramd32_CLK_I)
+                                                      0.067     1.221    ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMA_D1
+  -------------------------------------------------------------------
+                         required time                         -1.221    
+                         arrival time                           1.250    
+  -------------------------------------------------------------------
+                         slack                                  0.029    
+
+Slack (MET) :             0.033ns  (arrival time - required time)
+  Source:                 ZYBO_i/axi_smc/inst/s01_nodes/s01_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_wr_addra/count_r_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            ZYBO_i/axi_smc/inst/s01_nodes/s01_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_90_95/RAMA/WADR3
+                            (rising edge-triggered cell RAMD32 clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.286ns  (logic 0.141ns (49.231%)  route 0.145ns (50.769%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.197ns
+    Source Clock Delay      (SCD):    0.901ns
+    Clock Pessimism Removal (CPR):    0.283ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.315     0.315    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.026     0.341 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.560     0.901    ZYBO_i/axi_smc/inst/s01_nodes/s01_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_wr_addra/s_sc_aclk
+    SLICE_X29Y37         FDRE                                         r  ZYBO_i/axi_smc/inst/s01_nodes/s01_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_wr_addra/count_r_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X29Y37         FDRE (Prop_fdre_C_Q)         0.141     1.042 r  ZYBO_i/axi_smc/inst/s01_nodes/s01_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_wr_addra/count_r_reg[3]/Q
+                         net (fo=93, routed)          0.145     1.187    ZYBO_i/axi_smc/inst/s01_nodes/s01_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_90_95/ADDRD3
+    SLICE_X28Y37         RAMD32                                       r  ZYBO_i/axi_smc/inst/s01_nodes/s01_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_90_95/RAMA/WADR3
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.341     0.341    ZYBO_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.029     0.370 r  ZYBO_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=6443, routed)        0.827     1.197    ZYBO_i/axi_smc/inst/s01_nodes/s01_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_90_95/WCLK
+    SLICE_X28Y37         RAMD32                                       r  ZYBO_i/axi_smc/inst/s01_nodes/s01_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_90_95/RAMA/CLK
+                         clock pessimism             -0.283     0.914    
+    SLICE_X28Y37         RAMD32 (Hold_ramd32_CLK_WADR3)
+                                                      0.240     1.154    ZYBO_i/axi_smc/inst/s01_nodes/s01_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_90_95/RAMA
+  -------------------------------------------------------------------
+                         required time                         -1.154    
+                         arrival time                           1.187    
+  -------------------------------------------------------------------
+                         slack                                  0.033    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clk_fpga_0
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { ZYBO_i/processing_system7_0/inst/PS7_i/FCLKCLK[0] }
+
+Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
+Min Period        n/a     DSP48E1/CLK         n/a            3.884         10.000      6.116      DSP48_X0Y27   ZYBO_i/TOPANN_0/inst/r_V_4_fu_692_p2__0/CLK
+Min Period        n/a     DSP48E1/CLK         n/a            3.884         10.000      6.116      DSP48_X1Y27   ZYBO_i/TOPANN_0/inst/r_V_5_fu_1058_p2__0/CLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X0Y12  ZYBO_i/TOPANN_0/inst/TOPANN_AXILiteS_s_axi_U/int_bias_V/gen_write[1].mem_reg/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X0Y12  ZYBO_i/TOPANN_0/inst/TOPANN_AXILiteS_s_axi_U/int_bias_V/gen_write[1].mem_reg/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X0Y10  ZYBO_i/TOPANN_0/inst/TOPANN_AXILiteS_s_axi_U/int_layerWeigth_V/gen_write[1].mem_reg/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X0Y10  ZYBO_i/TOPANN_0/inst/TOPANN_AXILiteS_s_axi_U/int_layerWeigth_V/gen_write[1].mem_reg/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X1Y11  ZYBO_i/TOPANN_0/inst/TOPANN_AXILiteS_s_axi_U/int_outputLayerBias_V/gen_write[1].mem_reg/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X1Y11  ZYBO_i/TOPANN_0/inst/TOPANN_AXILiteS_s_axi_U/int_outputLayerBias_V/gen_write[1].mem_reg/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X1Y12  ZYBO_i/TOPANN_0/inst/TOPANN_AXILiteS_s_axi_U/int_outputLayerWeigth_V/gen_write[1].mem_reg/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X1Y12  ZYBO_i/TOPANN_0/inst/TOPANN_AXILiteS_s_axi_U/int_outputLayerWeigth_V/gen_write[1].mem_reg/CLKBWRCLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X24Y25  ZYBO_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMA/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X24Y25  ZYBO_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMA_D1/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X24Y25  ZYBO_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMB/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X24Y25  ZYBO_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMB_D1/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X24Y25  ZYBO_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMC/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X24Y25  ZYBO_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMC_D1/CLK
+Low Pulse Width   Slow    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X24Y25  ZYBO_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMD/CLK
+Low Pulse Width   Slow    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X24Y25  ZYBO_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_96_101/RAMD_D1/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X24Y24  ZYBO_i/axi_smc/inst/s01_nodes/s01_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_114_119/RAMA/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X24Y24  ZYBO_i/axi_smc/inst/s01_nodes/s01_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_114_119/RAMA_D1/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X16Y19  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_0_5/RAMA/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X16Y19  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_0_5/RAMA/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X16Y19  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_0_5/RAMA_D1/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X16Y19  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_0_5/RAMA_D1/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X16Y19  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_0_5/RAMB/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X16Y19  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_0_5/RAMB/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X16Y19  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_0_5/RAMB_D1/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X16Y19  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_0_5/RAMB_D1/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X16Y19  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_0_5/RAMC/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X16Y19  ZYBO_i/axi_smc/inst/m00_nodes/m00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_31_0_5/RAMC/CLK
+
+
+

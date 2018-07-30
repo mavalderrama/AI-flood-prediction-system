@@ -1,0 +1,465 @@
+
+
+================================================================
+== Vivado HLS Report for 'Block_proc19'
+================================================================
+* Date:           Sun May  6 22:50:51 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        ANN
+* Solution:       FULL-OPT
+* Product family: zynq
+* Target device:  xc7z010clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   6.67|      6.56|        0.83|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   67|   67|   67|   67|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +---------------+-------+-----+-----+-----+-----+---------+
+        |               |       |  Latency  |  Interval | Pipeline|
+        |    Instance   | Module| min | max | min | max |   Type  |
+        +---------------+-------+-----+-----+-----+-----+---------+
+        |grp_ANN_fu_45  |ANN    |   65|   65|   65|   65|   none  |
+        +---------------+-------+-----+-----+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+
+* FSM state operations: 
+
+ <State 1> : 2.32ns
+ST_1 : Operation 4 [1/1] (2.32ns)   --->   "%layerResult_01 = alloca [3 x i26], align 4"
+ST_1 : Operation 5 [2/2] (0.00ns)   --->   "%layerResult_1_s = call fastcc i26 @ANN([3 x i32]* %inputs_V, [9 x i32]* %layerWeigth_V, [3 x i32]* %bias_V, [3 x i32]* %outputLayerWeigth_V, [1 x i32]* %outputLayerBias_V, [3 x i26]* %layerResult_01)" [ANN/ANN.cpp:10]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 2> : 3.67ns
+ST_2 : Operation 6 [1/2] (3.67ns)   --->   "%layerResult_1_s = call fastcc i26 @ANN([3 x i32]* %inputs_V, [9 x i32]* %layerWeigth_V, [3 x i32]* %bias_V, [3 x i32]* %outputLayerWeigth_V, [1 x i32]* %outputLayerBias_V, [3 x i26]* %layerResult_01)" [ANN/ANN.cpp:10]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 3> : 2.32ns
+ST_3 : Operation 7 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecMemCore([3 x i32]* %inputs_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_3 : Operation 8 [1/1] (0.00ns)   --->   "%empty_35 = call i32 (...)* @_ssdm_op_SpecMemCore([9 x i32]* %layerWeigth_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_3 : Operation 9 [1/1] (0.00ns)   --->   "%empty_36 = call i32 (...)* @_ssdm_op_SpecMemCore([3 x i32]* %bias_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_3 : Operation 10 [1/1] (0.00ns)   --->   "%empty_37 = call i32 (...)* @_ssdm_op_SpecMemCore([3 x i32]* %outputLayerWeigth_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_3 : Operation 11 [1/1] (0.00ns)   --->   "%empty_38 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %outputLayerBias_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_3 : Operation 12 [1/1] (0.00ns)   --->   "%empty_39 = call i32 (...)* @_ssdm_op_SpecMemCore([2 x i32]* %result_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_3 : Operation 13 [1/1] (0.00ns)   --->   "%extLd = sext i26 %layerResult_1_s to i32" [ANN/ANN.cpp:10]
+ST_3 : Operation 14 [1/1] (0.00ns)   --->   "%result_V_addr = getelementptr [2 x i32]* %result_V, i64 0, i64 0"
+ST_3 : Operation 15 [1/1] (2.32ns)   --->   "store i32 %extLd, i32* %result_V_addr, align 4" [ANN/ANN.cpp:11]   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 2> <RAM>
+ST_3 : Operation 16 [1/1] (0.00ns)   --->   "ret void"
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ inputs_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ layerWeigth_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ bias_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ outputLayerWeigth_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ outputLayerBias_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[1]; IO mode=ap_memory:ce=0
+Port [ result_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=1; pingpong=0; private_global=0; MemPort=[0]; IO mode=ap_memory:ce=0
+Port [ coeTanSig_V]:  wired=0; compound=1; hidden=1; nouse=1; global=1; static=1; extern=0; dir=0; type=1; pingpong=0; private_global=0; linkage=7; visibility=0; MemPort=[1]; IO mode=ap_memory:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+layerResult_01  (alloca       ) [ 0010]
+layerResult_1_s (call         ) [ 0001]
+empty           (specmemcore  ) [ 0000]
+empty_35        (specmemcore  ) [ 0000]
+empty_36        (specmemcore  ) [ 0000]
+empty_37        (specmemcore  ) [ 0000]
+empty_38        (specmemcore  ) [ 0000]
+empty_39        (specmemcore  ) [ 0000]
+extLd           (sext         ) [ 0000]
+result_V_addr   (getelementptr) [ 0000]
+StgValue_15     (store        ) [ 0000]
+StgValue_16     (ret          ) [ 0000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="inputs_V">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="inputs_V"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="layerWeigth_V">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="layerWeigth_V"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="bias_V">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="bias_V"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="outputLayerWeigth_V">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="outputLayerWeigth_V"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="outputLayerBias_V">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="outputLayerBias_V"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="result_V">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="result_V"/><MemPortTyVec>0 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="coeTanSig_V">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="coeTanSig_V"/><MemPortTyVec>1 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1001" name="const_14">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1001" name="const_16">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="ANN"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1001" name="const_18">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecMemCore"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1001" name="const_20">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="RAM_1P_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1004" name="layerResult_01_alloca_fu_28">
+<pin_list>
+<pin id="29" dir="0" index="0" bw="1" slack="0"/>
+<pin id="30" dir="1" index="1" bw="26" slack="0"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="layerResult_01/1 "/>
+</bind>
+</comp>
+
+<comp id="32" class="1004" name="result_V_addr_gep_fu_32">
+<pin_list>
+<pin id="33" dir="0" index="0" bw="32" slack="0"/>
+<pin id="34" dir="0" index="1" bw="1" slack="0"/>
+<pin id="35" dir="0" index="2" bw="1" slack="0"/>
+<pin id="36" dir="1" index="3" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="result_V_addr/3 "/>
+</bind>
+</comp>
+
+<comp id="40" class="1004" name="StgValue_15_access_fu_40">
+<pin_list>
+<pin id="41" dir="0" index="0" bw="1" slack="0"/>
+<pin id="42" dir="0" index="1" bw="32" slack="0"/>
+<pin id="43" dir="1" index="2" bw="32" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="StgValue_15/3 "/>
+</bind>
+</comp>
+
+<comp id="45" class="1004" name="grp_ANN_fu_45">
+<pin_list>
+<pin id="46" dir="0" index="0" bw="26" slack="0"/>
+<pin id="47" dir="0" index="1" bw="32" slack="0"/>
+<pin id="48" dir="0" index="2" bw="32" slack="0"/>
+<pin id="49" dir="0" index="3" bw="32" slack="0"/>
+<pin id="50" dir="0" index="4" bw="32" slack="0"/>
+<pin id="51" dir="0" index="5" bw="32" slack="0"/>
+<pin id="52" dir="0" index="6" bw="26" slack="0"/>
+<pin id="53" dir="0" index="7" bw="25" slack="0"/>
+<pin id="54" dir="1" index="8" bw="26" slack="1"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="layerResult_1_s/1 "/>
+</bind>
+</comp>
+
+<comp id="63" class="1004" name="extLd_fu_63">
+<pin_list>
+<pin id="64" dir="0" index="0" bw="26" slack="1"/>
+<pin id="65" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="sext(35) " fcode="sext"/>
+<opset="extLd/3 "/>
+</bind>
+</comp>
+
+<comp id="67" class="1005" name="layerResult_1_s_reg_67">
+<pin_list>
+<pin id="68" dir="0" index="0" bw="26" slack="1"/>
+<pin id="69" dir="1" index="1" bw="26" slack="1"/>
+</pin_list>
+<bind>
+<opset="layerResult_1_s "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="31"><net_src comp="14" pin="0"/><net_sink comp="28" pin=0"/></net>
+
+<net id="37"><net_src comp="10" pin="0"/><net_sink comp="32" pin=0"/></net>
+
+<net id="38"><net_src comp="26" pin="0"/><net_sink comp="32" pin=1"/></net>
+
+<net id="39"><net_src comp="26" pin="0"/><net_sink comp="32" pin=2"/></net>
+
+<net id="44"><net_src comp="32" pin="3"/><net_sink comp="40" pin=0"/></net>
+
+<net id="55"><net_src comp="16" pin="0"/><net_sink comp="45" pin=0"/></net>
+
+<net id="56"><net_src comp="0" pin="0"/><net_sink comp="45" pin=1"/></net>
+
+<net id="57"><net_src comp="2" pin="0"/><net_sink comp="45" pin=2"/></net>
+
+<net id="58"><net_src comp="4" pin="0"/><net_sink comp="45" pin=3"/></net>
+
+<net id="59"><net_src comp="6" pin="0"/><net_sink comp="45" pin=4"/></net>
+
+<net id="60"><net_src comp="8" pin="0"/><net_sink comp="45" pin=5"/></net>
+
+<net id="61"><net_src comp="28" pin="1"/><net_sink comp="45" pin=6"/></net>
+
+<net id="62"><net_src comp="12" pin="0"/><net_sink comp="45" pin=7"/></net>
+
+<net id="66"><net_src comp="63" pin="1"/><net_sink comp="40" pin=1"/></net>
+
+<net id="70"><net_src comp="45" pin="8"/><net_sink comp="67" pin=0"/></net>
+
+<net id="71"><net_src comp="67" pin="1"/><net_sink comp="63" pin=0"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: result_V | {3 }
+ - Input state : 
+	Port: Block__proc19 : inputs_V | {1 2 }
+	Port: Block__proc19 : layerWeigth_V | {1 2 }
+	Port: Block__proc19 : bias_V | {1 2 }
+	Port: Block__proc19 : outputLayerWeigth_V | {1 2 }
+	Port: Block__proc19 : outputLayerBias_V | {1 2 }
+	Port: Block__proc19 : coeTanSig_V | {1 2 }
+  - Chain level:
+	State 1
+		layerResult_1_s : 1
+	State 2
+	State 3
+		StgValue_15 : 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|----------------|---------|---------|---------|---------|
+| Operation| Functional Unit|  DSP48E |  Delay  |    FF   |   LUT   |
+|----------|----------------|---------|---------|---------|---------|
+|   call   |  grp_ANN_fu_45 |    16   | 32.1622 |   3232  |   3087  |
+|----------|----------------|---------|---------|---------|---------|
+|   sext   |   extLd_fu_63  |    0    |    0    |    0    |    0    |
+|----------|----------------|---------|---------|---------|---------|
+|   Total  |                |    16   | 32.1622 |   3232  |   3087  |
+|----------|----------------|---------|---------|---------|---------|
+
+Memories:
++--------------+--------+--------+--------+
+|              |  BRAM  |   FF   |   LUT  |
++--------------+--------+--------+--------+
+|layerResult_01|    0   |   52   |    2   |
++--------------+--------+--------+--------+
+|     Total    |    0   |   52   |    2   |
++--------------+--------+--------+--------+
+
+* Register list:
++----------------------+--------+
+|                      |   FF   |
++----------------------+--------+
+|layerResult_1_s_reg_67|   26   |
++----------------------+--------+
+|         Total        |   26   |
++----------------------+--------+
+
+* Multiplexer (MUX) list: 
+|--------|------|------|------|--------|
+|  Comp  |  Pin | Size |  BW  | S x BW |
+|--------|------|------|------|--------|
+|  Total |      |      |      |    0   |
+|--------|------|------|------|--------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+--------+--------+
+|           |  BRAM  | DSP48E |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+--------+--------+
+|  Function |    -   |   16   |   32   |  3232  |  3087  |
+|   Memory  |    0   |    -   |    -   |   52   |    2   |
+|Multiplexer|    -   |    -   |    -   |    -   |    -   |
+|  Register |    -   |    -   |    -   |   26   |    -   |
++-----------+--------+--------+--------+--------+--------+
+|   Total   |    0   |   16   |   32   |  3310  |  3089  |
++-----------+--------+--------+--------+--------+--------+

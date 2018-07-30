@@ -1,0 +1,631 @@
+
+
+================================================================
+== Vivado HLS Report for 'Loop_neuronLoop_proc'
+================================================================
+* Date:           Wed May  9 22:59:22 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        ANN
+* Solution:       MASTERAXI100
+* Product family: zynq
+* Target device:  xc7z010clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.75|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   23|   25|   23|   25|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------+-----+-----+----------+-----------+-----------+------+----------+
+        |              |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |   Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- neuronLoop  |    9|    9|         8|          1|          1|     3|    yes   |
+        +--------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 8
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 24
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 8, States = { 2 3 4 5 6 7 8 9 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	10  / (exitcond1_i_i)
+	3  / (!exitcond1_i_i)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	2  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / (!tmp_i_i_69 & !tmp_16_i_i)
+	18  / (tmp_i_i_69) | (tmp_16_i_i)
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+
+* FSM state operations: 
+
+ <State 1> : 3.63ns
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_2_2_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%empty_43 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_2_1_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%empty_44 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_2_0_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%empty_45 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_1_2_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%empty_46 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_1_1_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%empty_47 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_1_0_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%empty_48 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_0_2_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%empty_49 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_0_1_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%empty_50 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %layerWeigth_0_0_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%empty_51 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %bias_2_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%empty_52 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %bias_1_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%empty_53 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %bias_0_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%empty_54 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %outputLayerWeigth_2_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%empty_55 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %outputLayerWeigth_1_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%empty_56 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %outputLayerWeigth_0_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%empty_57 = call i32 (...)* @_ssdm_op_SpecMemCore([1 x i32]* %outputLayerBias_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%p_read_1 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read2)"
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%p_read_2 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read1)"
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%p_read_3 = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %p_read)"
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%layerResult_V = alloca [3 x i26], align 4" [ANN/ANN.cpp:9]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 26> <Depth = 3> <RAM>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %result_V, [6 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 1, [7 x i8]* @p_str7, [6 x i8]* @p_str8, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %result_V_offset, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 47 [1/1] (3.63ns)   --->   "%result_V_offset_read = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %result_V_offset)"   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%result_V_offset1_i = call i30 @_ssdm_op_PartSelect.i30.i32.i32.i32(i32 %result_V_offset_read, i32 2, i32 31)"
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%tmp_2_i = zext i30 %result_V_offset1_i to i64"
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%result_V_addr = getelementptr i32* %result_V, i64 %tmp_2_i"
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %result_V, [6 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 1, [7 x i8]* @p_str7, [6 x i8]* @p_str8, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%OP2_V_11_i_i = sext i32 %p_read_3 to i64" [ANN/ANN.cpp:19]
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%OP2_V_1_1_i_i = sext i32 %p_read_2 to i64" [ANN/ANN.cpp:19]
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%OP2_V_1_2_i_i = sext i32 %p_read_1 to i64" [ANN/ANN.cpp:19]
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%layerWeigth_0_0_V_s = getelementptr [1 x i32]* %layerWeigth_0_0_V, i64 0, i64 0"
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%layerWeigth_1_0_V_s = getelementptr [1 x i32]* %layerWeigth_1_0_V, i64 0, i64 0"
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%layerWeigth_2_0_V_s = getelementptr [1 x i32]* %layerWeigth_2_0_V, i64 0, i64 0"
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%layerWeigth_0_1_V_s = getelementptr [1 x i32]* %layerWeigth_0_1_V, i64 0, i64 0"
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%layerWeigth_1_1_V_s = getelementptr [1 x i32]* %layerWeigth_1_1_V, i64 0, i64 0"
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%layerWeigth_2_1_V_s = getelementptr [1 x i32]* %layerWeigth_2_1_V, i64 0, i64 0"
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%layerWeigth_0_2_V_s = getelementptr [1 x i32]* %layerWeigth_0_2_V, i64 0, i64 0"
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%layerWeigth_1_2_V_s = getelementptr [1 x i32]* %layerWeigth_1_2_V, i64 0, i64 0"
+ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%layerWeigth_2_2_V_s = getelementptr [1 x i32]* %layerWeigth_2_2_V, i64 0, i64 0"
+ST_1 : Operation 64 [1/1] (0.00ns)   --->   "%bias_0_V_addr = getelementptr [1 x i32]* %bias_0_V, i64 0, i64 0"
+ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%bias_1_V_addr = getelementptr [1 x i32]* %bias_1_V, i64 0, i64 0"
+ST_1 : Operation 66 [1/1] (0.00ns)   --->   "%bias_2_V_addr = getelementptr [1 x i32]* %bias_2_V, i64 0, i64 0"
+ST_1 : Operation 67 [1/1] (1.76ns)   --->   "br label %burst.rd.end.i.i"
+
+ <State 2> : 2.32ns
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%neuronIndex_i_i = phi i2 [ %neuronIndex, %0 ], [ 0, %entry ]"
+ST_2 : Operation 69 [1/1] (0.95ns)   --->   "%exitcond1_i_i = icmp eq i2 %neuronIndex_i_i, -1" [ANN/ANN.cpp:13]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 70 [1/1] (1.56ns)   --->   "%neuronIndex = add i2 %neuronIndex_i_i, 1" [ANN/ANN.cpp:13]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.99> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "br i1 %exitcond1_i_i, label %"ap_fixed_base<64, 16, true, 5, 3, 0>.exit.0.i.i", label %"ap_fixed_base<64, 16, true, 5, 3, 0>.exit524.0.i.i"" [ANN/ANN.cpp:13]
+ST_2 : Operation 72 [1/1] (0.00ns)   --->   "%tmp_5_i_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([11 x i8]* @p_str10)" [ANN/ANN.cpp:14]
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "%tmp_6_i_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([18 x i8]* @p_str11)" [ANN/ANN.cpp:18]
+ST_2 : Operation 74 [2/2] (2.32ns)   --->   "%layerWeigth_0_0_V_1 = load i32* %layerWeigth_0_0_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_2 : Operation 75 [2/2] (2.32ns)   --->   "%layerWeigth_1_0_V_1 = load i32* %layerWeigth_1_0_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_2 : Operation 76 [2/2] (2.32ns)   --->   "%layerWeigth_2_0_V_1 = load i32* %layerWeigth_2_0_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "%tmp_10_i_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([18 x i8]* @p_str11)" [ANN/ANN.cpp:18]
+ST_2 : Operation 78 [2/2] (2.32ns)   --->   "%layerWeigth_0_1_V_1 = load i32* %layerWeigth_0_1_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_2 : Operation 79 [2/2] (2.32ns)   --->   "%layerWeigth_1_1_V_1 = load i32* %layerWeigth_1_1_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_2 : Operation 80 [2/2] (2.32ns)   --->   "%layerWeigth_2_1_V_1 = load i32* %layerWeigth_2_1_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_2 : Operation 81 [1/1] (0.00ns)   --->   "%tmp_12_i_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([18 x i8]* @p_str11)" [ANN/ANN.cpp:18]
+ST_2 : Operation 82 [2/2] (2.32ns)   --->   "%layerWeigth_0_2_V_1 = load i32* %layerWeigth_0_2_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_2 : Operation 83 [2/2] (2.32ns)   --->   "%layerWeigth_1_2_V_1 = load i32* %layerWeigth_1_2_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_2 : Operation 84 [2/2] (2.32ns)   --->   "%layerWeigth_2_2_V_1 = load i32* %layerWeigth_2_2_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "%empty_58 = call i32 (...)* @_ssdm_op_SpecRegionEnd([11 x i8]* @p_str10, i32 %tmp_5_i_i)" [ANN/ANN.cpp:35]
+ST_2 : Operation 86 [1/1] (0.00ns)   --->   "br label %burst.rd.end.i.i" [ANN/ANN.cpp:13]
+
+ <State 3> : 4.10ns
+ST_3 : Operation 87 [1/2] (2.32ns)   --->   "%layerWeigth_0_0_V_1 = load i32* %layerWeigth_0_0_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_3 : Operation 88 [1/2] (2.32ns)   --->   "%layerWeigth_1_0_V_1 = load i32* %layerWeigth_1_0_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_3 : Operation 89 [1/2] (2.32ns)   --->   "%layerWeigth_2_0_V_1 = load i32* %layerWeigth_2_0_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_3 : Operation 90 [1/1] (1.77ns)   --->   "%tmp_8_i = call i32 @_ssdm_op_Mux.ap_auto.3i32.i2(i32 %layerWeigth_0_0_V_1, i32 %layerWeigth_1_0_V_1, i32 %layerWeigth_2_0_V_1, i2 %neuronIndex_i_i)" [ANN/ANN.cpp:13]   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 91 [1/2] (2.32ns)   --->   "%layerWeigth_0_1_V_1 = load i32* %layerWeigth_0_1_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_3 : Operation 92 [1/2] (2.32ns)   --->   "%layerWeigth_1_1_V_1 = load i32* %layerWeigth_1_1_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_3 : Operation 93 [1/2] (2.32ns)   --->   "%layerWeigth_2_1_V_1 = load i32* %layerWeigth_2_1_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_3 : Operation 94 [1/1] (1.77ns)   --->   "%tmp_9_i = call i32 @_ssdm_op_Mux.ap_auto.3i32.i2(i32 %layerWeigth_0_1_V_1, i32 %layerWeigth_1_1_V_1, i32 %layerWeigth_2_1_V_1, i2 %neuronIndex_i_i)" [ANN/ANN.cpp:13]   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 95 [1/2] (2.32ns)   --->   "%layerWeigth_0_2_V_1 = load i32* %layerWeigth_0_2_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_3 : Operation 96 [1/2] (2.32ns)   --->   "%layerWeigth_1_2_V_1 = load i32* %layerWeigth_1_2_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_3 : Operation 97 [1/2] (2.32ns)   --->   "%layerWeigth_2_2_V_1 = load i32* %layerWeigth_2_2_V_s, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_3 : Operation 98 [1/1] (1.77ns)   --->   "%tmp_10_i = call i32 @_ssdm_op_Mux.ap_auto.3i32.i2(i32 %layerWeigth_0_2_V_1, i32 %layerWeigth_1_2_V_1, i32 %layerWeigth_2_2_V_1, i2 %neuronIndex_i_i)" [ANN/ANN.cpp:13]   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+
+ <State 4> : 8.51ns
+ST_4 : Operation 99 [1/1] (0.00ns)   --->   "%OP1_V_11_i_i = sext i32 %tmp_8_i to i64" [ANN/ANN.cpp:19]
+ST_4 : Operation 100 [1/1] (8.51ns)   --->   "%p_Val2_8_i_i = mul nsw i64 %OP1_V_11_i_i, %OP2_V_11_i_i" [ANN/ANN.cpp:19]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 101 [1/1] (0.00ns)   --->   "%p_Val2_9_i_i = call i32 @_ssdm_op_PartSelect.i32.i64.i32.i32(i64 %p_Val2_8_i_i, i32 24, i32 55)" [ANN/ANN.cpp:19]
+ST_4 : Operation 102 [1/1] (0.00ns)   --->   "%tmp_11 = trunc i64 %p_Val2_8_i_i to i23" [ANN/ANN.cpp:19]
+ST_4 : Operation 103 [1/1] (0.00ns)   --->   "%OP1_V_1_1_i_i = sext i32 %tmp_9_i to i64" [ANN/ANN.cpp:19]
+ST_4 : Operation 104 [1/1] (8.51ns)   --->   "%p_Val2_8_1_i_i = mul nsw i64 %OP1_V_1_1_i_i, %OP2_V_1_1_i_i" [ANN/ANN.cpp:19]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 105 [1/1] (0.00ns)   --->   "%p_Val2_9_1_i_i = call i32 @_ssdm_op_PartSelect.i32.i64.i32.i32(i64 %p_Val2_8_1_i_i, i32 24, i32 55)" [ANN/ANN.cpp:19]
+ST_4 : Operation 106 [1/1] (0.00ns)   --->   "%tmp_14 = trunc i64 %p_Val2_8_1_i_i to i23" [ANN/ANN.cpp:19]
+ST_4 : Operation 107 [1/1] (0.00ns)   --->   "%OP1_V_1_2_i_i = sext i32 %tmp_10_i to i64" [ANN/ANN.cpp:19]
+ST_4 : Operation 108 [1/1] (8.51ns)   --->   "%p_Val2_8_2_i_i = mul nsw i64 %OP1_V_1_2_i_i, %OP2_V_1_2_i_i" [ANN/ANN.cpp:19]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 109 [1/1] (0.00ns)   --->   "%p_Val2_9_2_i_i = call i32 @_ssdm_op_PartSelect.i32.i64.i32.i32(i64 %p_Val2_8_2_i_i, i32 24, i32 55)" [ANN/ANN.cpp:19]
+ST_4 : Operation 110 [1/1] (0.00ns)   --->   "%tmp_17 = trunc i64 %p_Val2_8_2_i_i to i23" [ANN/ANN.cpp:19]
+ST_4 : Operation 111 [1/1] (0.00ns)   --->   "%tmp_11_i = call i28 @_ssdm_op_PartSelect.i28.i64.i32.i32(i64 %p_Val2_8_1_i_i, i32 24, i32 51)" [ANN/ANN.cpp:19]
+ST_4 : Operation 112 [1/1] (0.00ns)   --->   "%tmp_12_i = call i28 @_ssdm_op_PartSelect.i28.i64.i32.i32(i64 %p_Val2_8_i_i, i32 24, i32 51)" [ANN/ANN.cpp:19]
+ST_4 : Operation 113 [1/1] (0.00ns)   --->   "%tmp_14_i = call i28 @_ssdm_op_PartSelect.i28.i64.i32.i32(i64 %p_Val2_8_2_i_i, i32 24, i32 51)" [ANN/ANN.cpp:19]
+ST_4 : Operation 114 [2/2] (2.32ns)   --->   "%bias_0_V_load = load i32* %bias_0_V_addr, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_4 : Operation 115 [2/2] (2.32ns)   --->   "%bias_1_V_load = load i32* %bias_1_V_addr, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_4 : Operation 116 [2/2] (2.32ns)   --->   "%bias_2_V_load = load i32* %bias_2_V_addr, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+
+ <State 5> : 5.45ns
+ST_5 : Operation 117 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_3_i_i)   --->   "%tmp_10 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_8_i_i, i32 23)" [ANN/ANN.cpp:19]
+ST_5 : Operation 118 [1/1] (2.44ns)   --->   "%r_i_i = icmp ne i23 %tmp_11, 0" [ANN/ANN.cpp:19]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 119 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_3_i_i)   --->   "%tmp_12 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_8_i_i, i32 24)" [ANN/ANN.cpp:19]
+ST_5 : Operation 120 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_3_i_i)   --->   "%r_i_i1_i_i = or i1 %tmp_12, %r_i_i" [ANN/ANN.cpp:19]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 121 [1/1] (0.93ns) (out node of the LUT)   --->   "%qb_assign_3_i_i = and i1 %r_i_i1_i_i, %tmp_10" [ANN/ANN.cpp:19]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 122 [1/1] (0.00ns)   --->   "%tmp_17_i_cast_i = zext i1 %qb_assign_3_i_i to i2" [ANN/ANN.cpp:21]
+ST_5 : Operation 123 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_3_1_i_i)   --->   "%tmp_13 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_8_1_i_i, i32 23)" [ANN/ANN.cpp:19]
+ST_5 : Operation 124 [1/1] (2.44ns)   --->   "%r_1_i_i = icmp ne i23 %tmp_14, 0" [ANN/ANN.cpp:19]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 125 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_3_1_i_i)   --->   "%tmp_15 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_8_1_i_i, i32 24)" [ANN/ANN.cpp:19]
+ST_5 : Operation 126 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_3_1_i_i)   --->   "%r_i_i1_1_i_i = or i1 %tmp_15, %r_1_i_i" [ANN/ANN.cpp:19]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 127 [1/1] (0.93ns) (out node of the LUT)   --->   "%qb_assign_3_1_i_i = and i1 %r_i_i1_1_i_i, %tmp_13" [ANN/ANN.cpp:19]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 128 [1/1] (0.00ns)   --->   "%tmp_17_1_i_cast_i = zext i1 %qb_assign_3_1_i_i to i2" [ANN/ANN.cpp:21]
+ST_5 : Operation 129 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_3_2_i_i)   --->   "%tmp_16 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_8_2_i_i, i32 23)" [ANN/ANN.cpp:19]
+ST_5 : Operation 130 [1/1] (2.44ns)   --->   "%r_i_i_62 = icmp ne i23 %tmp_17, 0" [ANN/ANN.cpp:19]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 131 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_3_2_i_i)   --->   "%tmp_18 = call i1 @_ssdm_op_BitSelect.i1.i64.i32(i64 %p_Val2_8_2_i_i, i32 24)" [ANN/ANN.cpp:19]
+ST_5 : Operation 132 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_3_2_i_i)   --->   "%r_i_i1_2_i_i = or i1 %tmp_18, %r_i_i_62" [ANN/ANN.cpp:19]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 133 [1/1] (0.93ns) (out node of the LUT)   --->   "%qb_assign_3_2_i_i = and i1 %r_i_i1_2_i_i, %tmp_16" [ANN/ANN.cpp:19]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 134 [1/1] (0.00ns)   --->   "%tmp_17_2_i_cast_i = zext i1 %qb_assign_3_2_i_i to i2" [ANN/ANN.cpp:20]
+ST_5 : Operation 135 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp5_i = add i32 %p_Val2_9_i_i, %p_Val2_9_1_i_i" [ANN/ANN.cpp:20]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 136 [1/1] (2.43ns)   --->   "%tmp_13_i = add i28 %tmp_11_i, %tmp_12_i" [ANN/ANN.cpp:19]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.99> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 137 [1/1] (4.37ns) (root node of TernaryAdder)   --->   "%tmp4_i = add i32 %tmp5_i, %p_Val2_9_2_i_i" [ANN/ANN.cpp:20]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 138 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp7_i = add i2 %tmp_17_i_cast_i, %tmp_17_1_i_cast_i" [ANN/ANN.cpp:20]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 139 [1/1] (2.07ns) (root node of TernaryAdder)   --->   "%tmp6_i = add i2 %tmp7_i, %tmp_17_2_i_cast_i" [ANN/ANN.cpp:20]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 140 [1/2] (2.32ns)   --->   "%bias_0_V_load = load i32* %bias_0_V_addr, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_5 : Operation 141 [1/2] (2.32ns)   --->   "%bias_1_V_load = load i32* %bias_1_V_addr, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_5 : Operation 142 [1/2] (2.32ns)   --->   "%bias_2_V_load = load i32* %bias_2_V_addr, align 4"   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_5 : Operation 143 [1/1] (1.77ns)   --->   "%p_Val2_1 = call i32 @_ssdm_op_Mux.ap_auto.3i32.i2(i32 %bias_0_V_load, i32 %bias_1_V_load, i32 %bias_2_V_load, i2 %neuronIndex_i_i)" [ANN/ANN.cpp:13]   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 144 [1/1] (0.00ns)   --->   "%tmp_19 = trunc i32 %p_Val2_1 to i28" [ANN/ANN.cpp:13]
+
+ <State 6> : 8.71ns
+ST_6 : Operation 145 [1/1] (0.00ns)   --->   "%tmp_i_i = zext i2 %neuronIndex_i_i to i64" [ANN/ANN.cpp:19]
+ST_6 : Operation 146 [1/1] (0.00ns)   --->   "%tmp6_cast_i = zext i2 %tmp6_i to i32" [ANN/ANN.cpp:20]
+ST_6 : Operation 147 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp_15_i = add i28 %tmp_14_i, %tmp_13_i" [ANN/ANN.cpp:19]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 148 [1/1] (0.00ns)   --->   "%tmp_16_i = zext i2 %tmp6_i to i28" [ANN/ANN.cpp:20]
+ST_6 : Operation 149 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%p_Val2_14_2_i_i = add i32 %tmp6_cast_i, %tmp4_i" [ANN/ANN.cpp:20]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 150 [1/1] (4.25ns) (root node of TernaryAdder)   --->   "%tmp_17_i = add i28 %tmp_15_i, %tmp_16_i" [ANN/ANN.cpp:19]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 151 [1/1] (4.37ns) (root node of TernaryAdder)   --->   "%tmpCalc_V = add i32 %p_Val2_1, %p_Val2_14_2_i_i" [ANN/ANN.cpp:22]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 152 [1/1] (2.47ns)   --->   "%tmp_15_i_i = icmp sgt i32 %tmpCalc_V, 83886080" [ANN/ANN.cpp:23]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 153 [1/1] (0.00ns)   --->   "br i1 %tmp_15_i_i, label %._crit_edge.i367.i.i, label %._crit_edge.i345.i.i" [ANN/ANN.cpp:23]
+ST_6 : Operation 154 [1/1] (2.47ns)   --->   "%tmp_18_i_i = icmp slt i32 %tmpCalc_V, -83886080" [ANN/ANN.cpp:27]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 155 [1/1] (0.00ns)   --->   "br i1 %tmp_18_i_i, label %._crit_edge.i323.i.i, label %._crit_edge.i301.i_ifconv.i" [ANN/ANN.cpp:27]
+ST_6 : Operation 156 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp8_i = add i28 83886080, %tmp_19" [ANN/ANN.cpp:31]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 157 [1/1] (4.25ns) (root node of TernaryAdder)   --->   "%r_V_2 = add i28 %tmp_17_i, %tmp8_i" [ANN/ANN.cpp:31]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 158 [1/1] (0.00ns)   --->   "%layerResult_V_addr_4 = getelementptr [3 x i26]* %layerResult_V, i64 0, i64 %tmp_i_i" [ANN/ANN.cpp:28]
+ST_6 : Operation 159 [1/1] (2.32ns)   --->   "store i26 -16777216, i26* %layerResult_V_addr_4, align 4" [ANN/ANN.cpp:28]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 26> <Depth = 3> <RAM>
+ST_6 : Operation 160 [1/1] (0.00ns)   --->   "br label %1" [ANN/ANN.cpp:28]
+ST_6 : Operation 161 [1/1] (0.00ns)   --->   "br label %0"
+ST_6 : Operation 162 [1/1] (0.00ns)   --->   "%layerResult_V_addr_3 = getelementptr [3 x i26]* %layerResult_V, i64 0, i64 %tmp_i_i" [ANN/ANN.cpp:24]
+ST_6 : Operation 163 [1/1] (2.32ns)   --->   "store i26 16777216, i26* %layerResult_V_addr_3, align 4" [ANN/ANN.cpp:24]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 26> <Depth = 3> <RAM>
+ST_6 : Operation 164 [1/1] (0.00ns)   --->   "br label %0" [ANN/ANN.cpp:24]
+
+ <State 7> : 8.51ns
+ST_7 : Operation 165 [1/1] (0.00ns)   --->   "%OP1_V_3_cast_i_i = zext i28 %r_V_2 to i60" [ANN/ANN.cpp:31]
+ST_7 : Operation 166 [1/1] (8.51ns)   --->   "%r_V_4 = mul i60 -1728053248, %OP1_V_3_cast_i_i" [ANN/ANN.cpp:31]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 167 [1/1] (0.00ns)   --->   "%tmp_20_i = call i12 @_ssdm_op_PartSelect.i12.i60.i32.i32(i60 %r_V_4, i32 48, i32 59)" [ANN/ANN.cpp:31]
+ST_7 : Operation 168 [1/1] (0.00ns)   --->   "%tmp_23 = trunc i60 %r_V_4 to i48" [ANN/ANN.cpp:31]
+
+ <State 8> : 7.46ns
+ST_8 : Operation 169 [1/1] (0.00ns)   --->   "%ret_V_1_cast_i = sext i12 %tmp_20_i to i13" [ANN/ANN.cpp:31]
+ST_8 : Operation 170 [1/1] (0.00ns) (grouped into LUT with out node p_3_i_i)   --->   "%tmp_22 = call i1 @_ssdm_op_BitSelect.i1.i60.i32(i60 %r_V_4, i32 59)" [ANN/ANN.cpp:31]
+ST_8 : Operation 171 [1/1] (2.83ns)   --->   "%tmp_23_i_i = icmp eq i48 %tmp_23, 0" [ANN/ANN.cpp:31]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 172 [1/1] (1.99ns)   --->   "%ret_V_1 = add i13 1, %ret_V_1_cast_i" [ANN/ANN.cpp:31]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.99> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 173 [1/1] (0.00ns) (grouped into LUT with out node p_3_i_i)   --->   "%p_i_i = select i1 %tmp_23_i_i, i13 %ret_V_1_cast_i, i13 %ret_V_1" [ANN/ANN.cpp:31]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 174 [1/1] (1.37ns) (out node of the LUT)   --->   "%p_3_i_i = select i1 %tmp_22, i13 %p_i_i, i13 %ret_V_1_cast_i" [ANN/ANN.cpp:31]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 175 [1/1] (0.00ns)   --->   "%tmp_24_i_i = sext i13 %p_3_i_i to i64" [ANN/ANN.cpp:32]
+ST_8 : Operation 176 [1/1] (0.00ns)   --->   "%coeTanSig_V_addr_1 = getelementptr [4096 x i25]* @coeTanSig_V, i64 0, i64 %tmp_24_i_i" [ANN/ANN.cpp:32]
+ST_8 : Operation 177 [2/2] (3.25ns)   --->   "%coeTanSig_V_load_1 = load i25* %coeTanSig_V_addr_1, align 4" [ANN/ANN.cpp:32]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 25> <Depth = 4096> <ROM>
+
+ <State 9> : 5.58ns
+ST_9 : Operation 178 [1/1] (0.00ns)   --->   "%empty_59 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"
+ST_9 : Operation 179 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([11 x i8]* @p_str10) nounwind" [ANN/ANN.cpp:14]
+ST_9 : Operation 180 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [ANN/ANN.cpp:15]
+ST_9 : Operation 181 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLatency(i32 2, i32 10, [1 x i8]* @p_str) nounwind" [ANN/ANN.cpp:19]
+ST_9 : Operation 182 [1/1] (0.00ns)   --->   "%empty_60 = call i32 (...)* @_ssdm_op_SpecRegionEnd([18 x i8]* @p_str11, i32 %tmp_6_i_i)" [ANN/ANN.cpp:21]
+ST_9 : Operation 183 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLatency(i32 2, i32 10, [1 x i8]* @p_str) nounwind" [ANN/ANN.cpp:19]
+ST_9 : Operation 184 [1/1] (0.00ns)   --->   "%empty_61 = call i32 (...)* @_ssdm_op_SpecRegionEnd([18 x i8]* @p_str11, i32 %tmp_10_i_i)" [ANN/ANN.cpp:21]
+ST_9 : Operation 185 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLatency(i32 2, i32 10, [1 x i8]* @p_str) nounwind" [ANN/ANN.cpp:19]
+ST_9 : Operation 186 [1/1] (0.00ns)   --->   "%empty_63 = call i32 (...)* @_ssdm_op_SpecRegionEnd([18 x i8]* @p_str11, i32 %tmp_12_i_i)" [ANN/ANN.cpp:21]
+ST_9 : Operation 187 [1/2] (3.25ns)   --->   "%coeTanSig_V_load_1 = load i25* %coeTanSig_V_addr_1, align 4" [ANN/ANN.cpp:32]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 25> <Depth = 4096> <ROM>
+ST_9 : Operation 188 [1/1] (0.00ns)   --->   "%coeTanSig_V_load_1_c = sext i25 %coeTanSig_V_load_1 to i26" [ANN/ANN.cpp:32]
+ST_9 : Operation 189 [1/1] (0.00ns)   --->   "%layerResult_V_addr_5 = getelementptr [3 x i26]* %layerResult_V, i64 0, i64 %tmp_i_i" [ANN/ANN.cpp:32]
+ST_9 : Operation 190 [1/1] (2.32ns)   --->   "store i26 %coeTanSig_V_load_1_c, i26* %layerResult_V_addr_5, align 4" [ANN/ANN.cpp:32]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 26> <Depth = 3> <RAM>
+ST_9 : Operation 191 [1/1] (0.00ns)   --->   "br label %1"
+
+ <State 10> : 2.32ns
+ST_10 : Operation 192 [1/1] (0.00ns)   --->   "%tmp_2_i_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([18 x i8]* @p_str12)" [ANN/ANN.cpp:39]
+ST_10 : Operation 193 [1/1] (0.00ns)   --->   "%layerResult_V_addr = getelementptr [3 x i26]* %layerResult_V, i64 0, i64 0" [ANN/ANN.cpp:40]
+ST_10 : Operation 194 [2/2] (2.32ns)   --->   "%layerResult_V_load = load i26* %layerResult_V_addr, align 4" [ANN/ANN.cpp:40]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 26> <Depth = 3> <RAM>
+
+ <State 11> : 2.32ns
+ST_11 : Operation 195 [1/1] (0.00ns)   --->   "%outputLayerWeigth_0 = getelementptr [1 x i32]* %outputLayerWeigth_0_V, i64 0, i64 0"
+ST_11 : Operation 196 [2/2] (2.32ns)   --->   "%outputLayerWeigth_0_1 = load i32* %outputLayerWeigth_0, align 4" [ANN/ANN.cpp:40]   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_11 : Operation 197 [1/2] (2.32ns)   --->   "%layerResult_V_load = load i26* %layerResult_V_addr, align 4" [ANN/ANN.cpp:40]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 26> <Depth = 3> <RAM>
+ST_11 : Operation 198 [1/1] (0.00ns)   --->   "%tmp_3_i_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([18 x i8]* @p_str12)" [ANN/ANN.cpp:39]
+ST_11 : Operation 199 [1/1] (0.00ns)   --->   "%outputLayerWeigth_1 = getelementptr [1 x i32]* %outputLayerWeigth_1_V, i64 0, i64 0"
+ST_11 : Operation 200 [2/2] (2.32ns)   --->   "%outputLayerWeigth_1_1 = load i32* %outputLayerWeigth_1, align 4" [ANN/ANN.cpp:40]   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_11 : Operation 201 [1/1] (0.00ns)   --->   "%layerResult_V_addr_1 = getelementptr [3 x i26]* %layerResult_V, i64 0, i64 1" [ANN/ANN.cpp:40]
+ST_11 : Operation 202 [2/2] (2.32ns)   --->   "%layerResult_V_load_1 = load i26* %layerResult_V_addr_1, align 4" [ANN/ANN.cpp:40]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 26> <Depth = 3> <RAM>
+ST_11 : Operation 203 [1/1] (0.00ns)   --->   "%tmp_4_i_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([18 x i8]* @p_str12)" [ANN/ANN.cpp:39]
+ST_11 : Operation 204 [1/1] (0.00ns)   --->   "%outputLayerWeigth_2 = getelementptr [1 x i32]* %outputLayerWeigth_2_V, i64 0, i64 0"
+ST_11 : Operation 205 [2/2] (2.32ns)   --->   "%outputLayerWeigth_2_1 = load i32* %outputLayerWeigth_2, align 4" [ANN/ANN.cpp:40]   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_11 : Operation 206 [1/1] (0.00ns)   --->   "%layerResult_V_addr_2 = getelementptr [3 x i26]* %layerResult_V, i64 0, i64 2" [ANN/ANN.cpp:40]
+ST_11 : Operation 207 [2/2] (2.32ns)   --->   "%layerResult_V_load_2 = load i26* %layerResult_V_addr_2, align 4" [ANN/ANN.cpp:40]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 26> <Depth = 3> <RAM>
+
+ <State 12> : 2.32ns
+ST_12 : Operation 208 [1/2] (2.32ns)   --->   "%outputLayerWeigth_0_1 = load i32* %outputLayerWeigth_0, align 4" [ANN/ANN.cpp:40]   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_12 : Operation 209 [1/2] (2.32ns)   --->   "%outputLayerWeigth_1_1 = load i32* %outputLayerWeigth_1, align 4" [ANN/ANN.cpp:40]   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_12 : Operation 210 [1/2] (2.32ns)   --->   "%layerResult_V_load_1 = load i26* %layerResult_V_addr_1, align 4" [ANN/ANN.cpp:40]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 26> <Depth = 3> <RAM>
+ST_12 : Operation 211 [1/2] (2.32ns)   --->   "%outputLayerWeigth_2_1 = load i32* %outputLayerWeigth_2, align 4" [ANN/ANN.cpp:40]   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_12 : Operation 212 [1/2] (2.32ns)   --->   "%layerResult_V_load_2 = load i26* %layerResult_V_addr_2, align 4" [ANN/ANN.cpp:40]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 26> <Depth = 3> <RAM>
+
+ <State 13> : 8.51ns
+ST_13 : Operation 213 [1/1] (0.00ns)   --->   "%OP1_V_cast_i_i = sext i32 %outputLayerWeigth_0_1 to i58" [ANN/ANN.cpp:40]
+ST_13 : Operation 214 [1/1] (0.00ns)   --->   "%OP2_V_cast_i_i = sext i26 %layerResult_V_load to i58" [ANN/ANN.cpp:40]
+ST_13 : Operation 215 [1/1] (8.51ns)   --->   "%p_Val2_3_i_i = mul i58 %OP1_V_cast_i_i, %OP2_V_cast_i_i" [ANN/ANN.cpp:40]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 216 [1/1] (0.00ns)   --->   "%p_Val2_4_i_i = call i32 @_ssdm_op_PartSelect.i32.i58.i32.i32(i58 %p_Val2_3_i_i, i32 24, i32 55)" [ANN/ANN.cpp:40]
+ST_13 : Operation 217 [1/1] (0.00ns)   --->   "%tmp_1 = trunc i58 %p_Val2_3_i_i to i23" [ANN/ANN.cpp:40]
+ST_13 : Operation 218 [1/1] (0.00ns)   --->   "%OP1_V_1_cast_i_i = sext i32 %outputLayerWeigth_1_1 to i58" [ANN/ANN.cpp:40]
+ST_13 : Operation 219 [1/1] (0.00ns)   --->   "%OP2_V_1_cast_i_i = sext i26 %layerResult_V_load_1 to i58" [ANN/ANN.cpp:40]
+ST_13 : Operation 220 [1/1] (8.51ns)   --->   "%p_Val2_3_1_i_i = mul i58 %OP1_V_1_cast_i_i, %OP2_V_1_cast_i_i" [ANN/ANN.cpp:40]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 221 [1/1] (0.00ns)   --->   "%p_Val2_4_1_i_i = call i32 @_ssdm_op_PartSelect.i32.i58.i32.i32(i58 %p_Val2_3_1_i_i, i32 24, i32 55)" [ANN/ANN.cpp:40]
+ST_13 : Operation 222 [1/1] (0.00ns)   --->   "%tmp_4 = trunc i58 %p_Val2_3_1_i_i to i23" [ANN/ANN.cpp:40]
+ST_13 : Operation 223 [1/1] (0.00ns)   --->   "%OP1_V_cast_i_i_66 = sext i32 %outputLayerWeigth_2_1 to i58" [ANN/ANN.cpp:40]
+ST_13 : Operation 224 [1/1] (0.00ns)   --->   "%OP2_V_2_cast_i_i = sext i26 %layerResult_V_load_2 to i58" [ANN/ANN.cpp:40]
+ST_13 : Operation 225 [1/1] (8.51ns)   --->   "%p_Val2_3_2_i_i = mul i58 %OP1_V_cast_i_i_66, %OP2_V_2_cast_i_i" [ANN/ANN.cpp:40]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 226 [1/1] (0.00ns)   --->   "%p_Val2_4_2_i_i = call i32 @_ssdm_op_PartSelect.i32.i58.i32.i32(i58 %p_Val2_3_2_i_i, i32 24, i32 55)" [ANN/ANN.cpp:40]
+ST_13 : Operation 227 [1/1] (0.00ns)   --->   "%tmp_7 = trunc i58 %p_Val2_3_2_i_i to i23" [ANN/ANN.cpp:40]
+ST_13 : Operation 228 [1/1] (0.00ns)   --->   "%tmp_i = call i28 @_ssdm_op_PartSelect.i28.i58.i32.i32(i58 %p_Val2_3_2_i_i, i32 24, i32 51)" [ANN/ANN.cpp:40]
+ST_13 : Operation 229 [1/1] (0.00ns)   --->   "%tmp_1_i = call i28 @_ssdm_op_PartSelect.i28.i58.i32.i32(i58 %p_Val2_3_1_i_i, i32 24, i32 51)" [ANN/ANN.cpp:40]
+ST_13 : Operation 230 [1/1] (0.00ns)   --->   "%tmp_4_i = call i28 @_ssdm_op_PartSelect.i28.i58.i32.i32(i58 %p_Val2_3_i_i, i32 24, i32 51)" [ANN/ANN.cpp:40]
+ST_13 : Operation 231 [1/1] (0.00ns)   --->   "%outputLayerBias_V_ad = getelementptr [1 x i32]* %outputLayerBias_V, i64 0, i64 0"
+ST_13 : Operation 232 [2/2] (2.32ns)   --->   "%p_Val2_s = load i32* %outputLayerBias_V_ad, align 4" [ANN/ANN.cpp:43]   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+
+ <State 14> : 5.45ns
+ST_14 : Operation 233 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_1_i_i)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i58.i32(i58 %p_Val2_3_i_i, i32 23)" [ANN/ANN.cpp:40]
+ST_14 : Operation 234 [1/1] (2.44ns)   --->   "%r_2_i_i = icmp ne i23 %tmp_1, 0" [ANN/ANN.cpp:40]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 235 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_1_i_i)   --->   "%tmp_2 = call i1 @_ssdm_op_BitSelect.i1.i58.i32(i58 %p_Val2_3_i_i, i32 24)" [ANN/ANN.cpp:40]
+ST_14 : Operation 236 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_1_i_i)   --->   "%r_i_i_i_i = or i1 %tmp_2, %r_2_i_i" [ANN/ANN.cpp:40]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 237 [1/1] (0.93ns) (out node of the LUT)   --->   "%qb_assign_1_i_i = and i1 %r_i_i_i_i, %tmp" [ANN/ANN.cpp:40]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 238 [1/1] (0.00ns)   --->   "%tmp_7_i_cast_i = zext i1 %qb_assign_1_i_i to i2" [ANN/ANN.cpp:42]
+ST_14 : Operation 239 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_1_1_i_i)   --->   "%tmp_3 = call i1 @_ssdm_op_BitSelect.i1.i58.i32(i58 %p_Val2_3_1_i_i, i32 23)" [ANN/ANN.cpp:40]
+ST_14 : Operation 240 [1/1] (2.44ns)   --->   "%r_2_1_i_i = icmp ne i23 %tmp_4, 0" [ANN/ANN.cpp:40]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 241 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_1_1_i_i)   --->   "%tmp_5 = call i1 @_ssdm_op_BitSelect.i1.i58.i32(i58 %p_Val2_3_1_i_i, i32 24)" [ANN/ANN.cpp:40]
+ST_14 : Operation 242 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_1_1_i_i)   --->   "%r_i_i_1_i_i = or i1 %tmp_5, %r_2_1_i_i" [ANN/ANN.cpp:40]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 243 [1/1] (0.93ns) (out node of the LUT)   --->   "%qb_assign_1_1_i_i = and i1 %r_i_i_1_i_i, %tmp_3" [ANN/ANN.cpp:40]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 244 [1/1] (0.00ns)   --->   "%tmp_7_1_i_cast_i = zext i1 %qb_assign_1_1_i_i to i2" [ANN/ANN.cpp:42]
+ST_14 : Operation 245 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_1_2_i_i)   --->   "%tmp_6 = call i1 @_ssdm_op_BitSelect.i1.i58.i32(i58 %p_Val2_3_2_i_i, i32 23)" [ANN/ANN.cpp:40]
+ST_14 : Operation 246 [1/1] (2.44ns)   --->   "%r_2_2_i_i = icmp ne i23 %tmp_7, 0" [ANN/ANN.cpp:40]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 247 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_1_2_i_i)   --->   "%tmp_8 = call i1 @_ssdm_op_BitSelect.i1.i58.i32(i58 %p_Val2_3_2_i_i, i32 24)" [ANN/ANN.cpp:40]
+ST_14 : Operation 248 [1/1] (0.00ns) (grouped into LUT with out node qb_assign_1_2_i_i)   --->   "%r_i_i_2_i_i = or i1 %tmp_8, %r_2_2_i_i" [ANN/ANN.cpp:40]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 249 [1/1] (0.93ns) (out node of the LUT)   --->   "%qb_assign_1_2_i_i = and i1 %r_i_i_2_i_i, %tmp_6" [ANN/ANN.cpp:40]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 250 [1/1] (0.00ns)   --->   "%tmp_7_2_i_cast_i = zext i1 %qb_assign_1_2_i_i to i2" [ANN/ANN.cpp:41]
+ST_14 : Operation 251 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp2_i = add i32 %p_Val2_4_1_i_i, %p_Val2_4_2_i_i" [ANN/ANN.cpp:41]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 252 [1/1] (2.43ns)   --->   "%tmp_3_i = add i28 %tmp_i, %tmp_1_i" [ANN/ANN.cpp:40]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.99> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 253 [1/1] (4.37ns) (root node of TernaryAdder)   --->   "%tmp9_i = add i32 %tmp2_i, %p_Val2_4_i_i" [ANN/ANN.cpp:41]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 254 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp3_i = add i2 %tmp_7_1_i_cast_i, %tmp_7_2_i_cast_i" [ANN/ANN.cpp:41]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 255 [1/1] (2.07ns) (root node of TernaryAdder)   --->   "%tmp10_i = add i2 %tmp3_i, %tmp_7_i_cast_i" [ANN/ANN.cpp:41]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 256 [1/2] (2.32ns)   --->   "%p_Val2_s = load i32* %outputLayerBias_V_ad, align 4" [ANN/ANN.cpp:43]   --->   Core 42 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 32> <Depth = 1> <RAM>
+ST_14 : Operation 257 [1/1] (0.00ns)   --->   "%tmp_9 = trunc i32 %p_Val2_s to i28" [ANN/ANN.cpp:43]
+
+ <State 15> : 8.71ns
+ST_15 : Operation 258 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLatency(i32 2, i32 10, [1 x i8]* @p_str) nounwind" [ANN/ANN.cpp:40]
+ST_15 : Operation 259 [1/1] (0.00ns)   --->   "%empty_64 = call i32 (...)* @_ssdm_op_SpecRegionEnd([18 x i8]* @p_str12, i32 %tmp_2_i_i)" [ANN/ANN.cpp:42]
+ST_15 : Operation 260 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLatency(i32 2, i32 10, [1 x i8]* @p_str) nounwind" [ANN/ANN.cpp:40]
+ST_15 : Operation 261 [1/1] (0.00ns)   --->   "%empty_65 = call i32 (...)* @_ssdm_op_SpecRegionEnd([18 x i8]* @p_str12, i32 %tmp_3_i_i)" [ANN/ANN.cpp:42]
+ST_15 : Operation 262 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLatency(i32 2, i32 10, [1 x i8]* @p_str) nounwind" [ANN/ANN.cpp:40]
+ST_15 : Operation 263 [1/1] (0.00ns)   --->   "%tmp13_cast_i = zext i2 %tmp10_i to i32" [ANN/ANN.cpp:41]
+ST_15 : Operation 264 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp_i_67 = add i28 %tmp_4_i, %tmp_3_i" [ANN/ANN.cpp:40]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 265 [1/1] (0.00ns)   --->   "%tmp_5_i = zext i2 %tmp10_i to i28" [ANN/ANN.cpp:41]
+ST_15 : Operation 266 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%p_Val2_13_2_i_i = add i32 %tmp13_cast_i, %tmp9_i" [ANN/ANN.cpp:41]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 267 [1/1] (0.00ns)   --->   "%empty_68 = call i32 (...)* @_ssdm_op_SpecRegionEnd([18 x i8]* @p_str12, i32 %tmp_4_i_i)" [ANN/ANN.cpp:42]
+ST_15 : Operation 268 [1/1] (4.25ns) (root node of TernaryAdder)   --->   "%tmp_7_i = add i28 %tmp_i_67, %tmp_5_i" [ANN/ANN.cpp:40]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 269 [1/1] (4.37ns) (root node of TernaryAdder)   --->   "%tmpCalc_V_2 = add i32 %p_Val2_s, %p_Val2_13_2_i_i" [ANN/ANN.cpp:43]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 270 [1/1] (2.47ns)   --->   "%tmp_i_i_69 = icmp sgt i32 %tmpCalc_V_2, 83886080" [ANN/ANN.cpp:44]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 271 [1/1] (0.00ns)   --->   "br i1 %tmp_i_i_69, label %._crit_edge88.i265.i.i, label %._crit_edge88.i419.i.i" [ANN/ANN.cpp:44]
+ST_15 : Operation 272 [1/1] (2.47ns)   --->   "%tmp_16_i_i = icmp slt i32 %tmpCalc_V_2, -83886080" [ANN/ANN.cpp:48]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 273 [1/1] (0.00ns)   --->   "br i1 %tmp_16_i_i, label %._crit_edge88.i441.i.i, label %._crit_edge88.i463.i_ifconv.i" [ANN/ANN.cpp:48]
+ST_15 : Operation 274 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp11_i = add i28 83886080, %tmp_7_i" [ANN/ANN.cpp:52]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 275 [1/1] (4.25ns) (root node of TernaryAdder)   --->   "%r_V = add i28 %tmp_9, %tmp11_i" [ANN/ANN.cpp:52]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.12> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 276 [1/1] (2.32ns)   --->   "store i26 -16777216, i26* %layerResult_V_addr, align 4" [ANN/ANN.cpp:49]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 26> <Depth = 3> <RAM>
+ST_15 : Operation 277 [1/1] (1.81ns)   --->   "br label %.exit" [ANN/ANN.cpp:49]
+ST_15 : Operation 278 [1/1] (2.32ns)   --->   "store i26 16777216, i26* %layerResult_V_addr, align 4" [ANN/ANN.cpp:45]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 26> <Depth = 3> <RAM>
+ST_15 : Operation 279 [1/1] (1.81ns)   --->   "br label %.exit" [ANN/ANN.cpp:45]
+
+ <State 16> : 8.51ns
+ST_16 : Operation 280 [1/1] (0.00ns)   --->   "%OP1_V_2_cast_i_i = zext i28 %r_V to i60" [ANN/ANN.cpp:52]
+ST_16 : Operation 281 [1/1] (8.51ns)   --->   "%r_V_5 = mul i60 -1728053248, %OP1_V_2_cast_i_i" [ANN/ANN.cpp:52]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 282 [1/1] (0.00ns)   --->   "%tmp_19_i = call i12 @_ssdm_op_PartSelect.i12.i60.i32.i32(i60 %r_V_5, i32 48, i32 59)" [ANN/ANN.cpp:52]
+ST_16 : Operation 283 [1/1] (0.00ns)   --->   "%tmp_21 = trunc i60 %r_V_5 to i48" [ANN/ANN.cpp:52]
+
+ <State 17> : 7.46ns
+ST_17 : Operation 284 [1/1] (0.00ns)   --->   "%ret_V_cast_i = sext i12 %tmp_19_i to i13" [ANN/ANN.cpp:52]
+ST_17 : Operation 285 [1/1] (0.00ns) (grouped into LUT with out node p_2_i_i)   --->   "%tmp_20 = call i1 @_ssdm_op_BitSelect.i1.i60.i32(i60 %r_V_5, i32 59)" [ANN/ANN.cpp:52]
+ST_17 : Operation 286 [1/1] (2.83ns)   --->   "%tmp_21_i_i = icmp eq i48 %tmp_21, 0" [ANN/ANN.cpp:52]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.83> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 287 [1/1] (1.99ns)   --->   "%ret_V = add i13 1, %ret_V_cast_i" [ANN/ANN.cpp:52]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.99> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 288 [1/1] (0.00ns) (grouped into LUT with out node p_2_i_i)   --->   "%p_1_i_i = select i1 %tmp_21_i_i, i13 %ret_V_cast_i, i13 %ret_V" [ANN/ANN.cpp:52]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_17 : Operation 289 [1/1] (1.37ns) (out node of the LUT)   --->   "%p_2_i_i = select i1 %tmp_20, i13 %p_1_i_i, i13 %ret_V_cast_i" [ANN/ANN.cpp:52]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_17 : Operation 290 [1/1] (0.00ns)   --->   "%tmp_22_i_i = sext i13 %p_2_i_i to i64" [ANN/ANN.cpp:53]
+ST_17 : Operation 291 [1/1] (0.00ns)   --->   "%coeTanSig_V_addr = getelementptr [4096 x i25]* @coeTanSig_V, i64 0, i64 %tmp_22_i_i" [ANN/ANN.cpp:53]
+ST_17 : Operation 292 [2/2] (3.25ns)   --->   "%coeTanSig_V_load = load i25* %coeTanSig_V_addr, align 4" [ANN/ANN.cpp:53]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 25> <Depth = 4096> <ROM>
+
+ <State 18> : 8.75ns
+ST_18 : Operation 293 [1/2] (3.25ns)   --->   "%coeTanSig_V_load = load i25* %coeTanSig_V_addr, align 4" [ANN/ANN.cpp:53]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 25> <Depth = 4096> <ROM>
+ST_18 : Operation 294 [1/1] (0.00ns)   --->   "%coeTanSig_V_load_cas = sext i25 %coeTanSig_V_load to i26" [ANN/ANN.cpp:53]
+ST_18 : Operation 295 [1/1] (2.32ns)   --->   "store i26 %coeTanSig_V_load_cas, i26* %layerResult_V_addr, align 4" [ANN/ANN.cpp:53]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 26> <Depth = 3> <RAM>
+ST_18 : Operation 296 [1/1] (1.81ns)   --->   "br label %.exit"
+ST_18 : Operation 297 [1/1] (8.75ns)   --->   "%result_V_addr_i_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %result_V_addr, i32 1)" [ANN/ANN.cpp:59]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 19> : 8.75ns
+ST_19 : Operation 298 [1/1] (0.00ns)   --->   "%layerResult_V_gep24_s = phi i26 [ 16777216, %._crit_edge88.i265.i.i ], [ %coeTanSig_V_load_cas, %._crit_edge88.i463.i_ifconv.i ], [ -16777216, %._crit_edge88.i441.i.i ]" [ANN/ANN.cpp:53]
+ST_19 : Operation 299 [1/1] (0.00ns)   --->   "%layerResult_V_gep24_1 = sext i26 %layerResult_V_gep24_s to i32" [ANN/ANN.cpp:53]
+ST_19 : Operation 300 [1/1] (8.75ns)   --->   "call void @_ssdm_op_Write.m_axi.i32P(i32* %result_V_addr, i32 %layerResult_V_gep24_1, i4 -1)" [ANN/ANN.cpp:59]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 20> : 8.75ns
+ST_20 : Operation 301 [5/5] (8.75ns)   --->   "%result_V_addr_i_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %result_V_addr)" [ANN/ANN.cpp:59]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 21> : 8.75ns
+ST_21 : Operation 302 [4/5] (8.75ns)   --->   "%result_V_addr_i_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %result_V_addr)" [ANN/ANN.cpp:59]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 22> : 8.75ns
+ST_22 : Operation 303 [3/5] (8.75ns)   --->   "%result_V_addr_i_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %result_V_addr)" [ANN/ANN.cpp:59]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 23> : 8.75ns
+ST_23 : Operation 304 [2/5] (8.75ns)   --->   "%result_V_addr_i_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %result_V_addr)" [ANN/ANN.cpp:59]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 24> : 8.75ns
+ST_24 : Operation 305 [1/5] (8.75ns)   --->   "%result_V_addr_i_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %result_V_addr)" [ANN/ANN.cpp:59]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_24 : Operation 306 [1/1] (0.00ns)   --->   "ret void"
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 3.63ns
+The critical path consists of the following:
+	fifo read on port 'result_V_offset' [45]  (3.63 ns)
+
+ <State 2>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('layerWeigth_0_0_V_1') on array 'layerWeigth_0_0_V' [79]  (2.32 ns)
+
+ <State 3>: 4.1ns
+The critical path consists of the following:
+	'load' operation ('layerWeigth_0_0_V_1') on array 'layerWeigth_0_0_V' [79]  (2.32 ns)
+	'mux' operation ('tmp_8_i', ANN/ANN.cpp:13) [82]  (1.77 ns)
+
+ <State 4>: 8.51ns
+The critical path consists of the following:
+	'mul' operation ('p_Val2_8_i_i', ANN/ANN.cpp:19) [84]  (8.51 ns)
+
+ <State 5>: 5.45ns
+The critical path consists of the following:
+	'icmp' operation ('r_i_i', ANN/ANN.cpp:19) [88]  (2.45 ns)
+	'or' operation ('r_i_i1_i_i', ANN/ANN.cpp:19) [90]  (0 ns)
+	'and' operation ('qb_assign_3_i_i', ANN/ANN.cpp:19) [91]  (0.931 ns)
+	'add' operation ('tmp7_i', ANN/ANN.cpp:20) [133]  (0 ns)
+	'add' operation ('tmp6_i', ANN/ANN.cpp:20) [134]  (2.07 ns)
+
+ <State 6>: 8.71ns
+The critical path consists of the following:
+	'add' operation ('tmp_15_i', ANN/ANN.cpp:19) [136]  (0 ns)
+	'add' operation ('tmp_17_i', ANN/ANN.cpp:19) [144]  (4.25 ns)
+	'add' operation ('r.V', ANN/ANN.cpp:31) [154]  (4.25 ns)
+	blocking operation 0.198 ns on control path)
+
+ <State 7>: 8.51ns
+The critical path consists of the following:
+	'mul' operation ('r.V', ANN/ANN.cpp:31) [156]  (8.51 ns)
+
+ <State 8>: 7.46ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_23_i_i', ANN/ANN.cpp:31) [161]  (2.84 ns)
+	'select' operation ('p_i_i', ANN/ANN.cpp:31) [163]  (0 ns)
+	'select' operation ('p_3_i_i', ANN/ANN.cpp:31) [164]  (1.37 ns)
+	'getelementptr' operation ('coeTanSig_V_addr_1', ANN/ANN.cpp:32) [166]  (0 ns)
+	'load' operation ('coeTanSig_V_load_1', ANN/ANN.cpp:32) on array 'coeTanSig_V' [167]  (3.25 ns)
+
+ <State 9>: 5.58ns
+The critical path consists of the following:
+	'load' operation ('coeTanSig_V_load_1', ANN/ANN.cpp:32) on array 'coeTanSig_V' [167]  (3.25 ns)
+	'store' operation (ANN/ANN.cpp:32) of variable 'coeTanSig_V_load_1_c', ANN/ANN.cpp:32 on array 'layerResult.V', ANN/ANN.cpp:9 [170]  (2.32 ns)
+
+ <State 10>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('layerResult_V_addr', ANN/ANN.cpp:40) [191]  (0 ns)
+	'load' operation ('layerResult_V_load', ANN/ANN.cpp:40) on array 'layerResult.V', ANN/ANN.cpp:9 [192]  (2.32 ns)
+
+ <State 11>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('outputLayerWeigth_0') [188]  (0 ns)
+	'load' operation ('outputLayerWeigth_0_1', ANN/ANN.cpp:40) on array 'outputLayerWeigth_0_V' [189]  (2.32 ns)
+
+ <State 12>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('outputLayerWeigth_0_1', ANN/ANN.cpp:40) on array 'outputLayerWeigth_0_V' [189]  (2.32 ns)
+
+ <State 13>: 8.51ns
+The critical path consists of the following:
+	'mul' operation ('p_Val2_3_i_i', ANN/ANN.cpp:40) [194]  (8.51 ns)
+
+ <State 14>: 5.45ns
+The critical path consists of the following:
+	'icmp' operation ('r_2_i_i', ANN/ANN.cpp:40) [198]  (2.45 ns)
+	'or' operation ('r_i_i_i_i', ANN/ANN.cpp:40) [200]  (0 ns)
+	'and' operation ('qb_assign_1_i_i', ANN/ANN.cpp:40) [201]  (0.931 ns)
+	'add' operation ('tmp10_i', ANN/ANN.cpp:41) [246]  (2.07 ns)
+
+ <State 15>: 8.71ns
+The critical path consists of the following:
+	'add' operation ('tmp_i_67', ANN/ANN.cpp:40) [248]  (0 ns)
+	'add' operation ('tmp_7_i', ANN/ANN.cpp:40) [255]  (4.25 ns)
+	'add' operation ('tmp11_i', ANN/ANN.cpp:52) [263]  (0 ns)
+	'add' operation ('r.V', ANN/ANN.cpp:52) [264]  (4.25 ns)
+	blocking operation 0.198 ns on control path)
+
+ <State 16>: 8.51ns
+The critical path consists of the following:
+	'mul' operation ('r.V', ANN/ANN.cpp:52) [266]  (8.51 ns)
+
+ <State 17>: 7.46ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_21_i_i', ANN/ANN.cpp:52) [271]  (2.84 ns)
+	'select' operation ('p_1_i_i', ANN/ANN.cpp:52) [273]  (0 ns)
+	'select' operation ('p_2_i_i', ANN/ANN.cpp:52) [274]  (1.37 ns)
+	'getelementptr' operation ('coeTanSig_V_addr', ANN/ANN.cpp:53) [276]  (0 ns)
+	'load' operation ('coeTanSig_V_load', ANN/ANN.cpp:53) on array 'coeTanSig_V' [277]  (3.25 ns)
+
+ <State 18>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'result_V' (ANN/ANN.cpp:59) [290]  (8.75 ns)
+
+ <State 19>: 8.75ns
+The critical path consists of the following:
+	'phi' operation ('layerResult_V_gep24_s', ANN/ANN.cpp:53) with incoming values : ('coeTanSig_V_load_cas', ANN/ANN.cpp:53) [288]  (0 ns)
+	bus write on port 'result_V' (ANN/ANN.cpp:59) [291]  (8.75 ns)
+
+ <State 20>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'result_V' (ANN/ANN.cpp:59) [292]  (8.75 ns)
+
+ <State 21>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'result_V' (ANN/ANN.cpp:59) [292]  (8.75 ns)
+
+ <State 22>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'result_V' (ANN/ANN.cpp:59) [292]  (8.75 ns)
+
+ <State 23>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'result_V' (ANN/ANN.cpp:59) [292]  (8.75 ns)
+
+ <State 24>: 8.75ns
+The critical path consists of the following:
+	bus access on port 'result_V' (ANN/ANN.cpp:59) [292]  (8.75 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

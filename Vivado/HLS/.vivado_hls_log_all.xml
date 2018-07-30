@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <csimLog>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T10:01:00.954-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T10:00:08.464-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T09:54:52.704-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T09:46:32.353-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T09:46:09.991-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:55:57.457-0500"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:55:57.453-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:54:38.843-0500"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:54:38.843-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:51:50.891-0500"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:51:50.880-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:51:14.194-0500"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:51:14.181-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:48:22.618-0500"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:48:22.608-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:36:41.571-0500"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:36:41.563-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:31:33.812-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:29:34.090-0500"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:29:34.081-0500"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:25:21.820-0500"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:25:21.813-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:20:33.033-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:18:12.058-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:17:57.418-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:17:11.440-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-21T08:16:50.097-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-19T17:32:11.157-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-19T17:31:21.868-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-19T17:30:48.269-0500"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="ANNTrain" solutionName="solution1" date="2018-07-19T17:29:23.116-0500"/>
+      </csimLog>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>
