@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="ANN.cpp" path="C:\ANNTrain\ANN.cpp"/>
+    <originFiles name="coe3.h" path="C:\ANNTrain\coe3.h"/>
+    <originFiles name="dataset.h" path="C:\ANNTrain\dataset.h"/>
+    <originFiles name="hardware.h" path="C:\ANNTrain\hardware.h"/>
+  </source>
+  <testbench>
+    <originFiles name="main.cpp" path="C:\ANNTrain\main.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

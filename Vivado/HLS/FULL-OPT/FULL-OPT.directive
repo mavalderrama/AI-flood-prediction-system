@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+  <sourceFile>
+    <directive functionName="TOPANN" label="" functionLabel="">
+      <pragma name="INTERFACE">
+        <option name="s_axilite" value=" " positionalBoolean="mode"/>
+        <option name="port" value="inputs" positionalBoolean="4"/>
+      </pragma>
+    </directive>
+    <directive functionName="TOPANN" label="" functionLabel="">
+      <pragma name="INTERFACE">
+        <option name="s_axilite" value="" positionalBoolean="mode"/>
+        <option name="port" value="layerWeigth" positionalBoolean="4"/>
+      </pragma>
+    </directive>
+    <directive functionName="TOPANN" label="" functionLabel="">
+      <pragma name="INTERFACE">
+        <option name="s_axilite" value="" positionalBoolean="mode"/>
+        <option name="port" value="bias" positionalBoolean="4"/>
+      </pragma>
+    </directive>
+    <directive functionName="TOPANN" label="" functionLabel="">
+      <pragma name="INTERFACE">
+        <option name="s_axilite" value="" positionalBoolean="mode"/>
+        <option name="port" value="outputLayerWeigth" positionalBoolean="4"/>
+      </pragma>
+    </directive>
+    <directive functionName="TOPANN" label="" functionLabel="">
+      <pragma name="INTERFACE">
+        <option name="s_axilite" value="" positionalBoolean="mode"/>
+        <option name="port" value="outputLayerBias" positionalBoolean="4"/>
+      </pragma>
+    </directive>
+    <directive functionName="TOPANN" label="" functionLabel="">
+      <pragma name="INTERFACE">
+        <option name="s_axilite" value="" positionalBoolean="mode"/>
+        <option name="register" value="" positionalBoolean="1"/>
+        <option name="port" value="result" positionalBoolean="4"/>
+      </pragma>
+    </directive>
+    <directive functionName="resultNeuron" label="" functionLabel="">
+      <pragma name="INLINE"/>
+    </directive>
+    <directive functionName="ANN" label="neuronLoop" functionLabel="">
+      <pragma name="PIPELINE">
+        <option name="II" value="1"/>
+      </pragma>
+    </directive>
+    <directive functionName="TOPANN" label="" functionLabel="">
+      <pragma name="DATAFLOW"/>
+    </directive>
+  </sourceFile>
+</AutoPilot:ProjectResources>
