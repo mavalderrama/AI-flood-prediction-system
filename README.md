@@ -2,7 +2,7 @@
 
 Hardware implementation of a fully conected Artificial Neural Network using Xilinx Vivado HLS
 
-# Features
+## Features
 - Input Layers:
 	- Reconfigurable N number of inputs
 - Hidden Neurons & Layers:
@@ -21,6 +21,6 @@ Hardware implementation of a fully conected Artificial Neural Network using Xili
 Fork of ARM Linux for ZYNQ7000 devices
 This version was compiled to work with an Artificial Neural Network Accelerator implemented in the ZYNQ7000 FPGA hw portion
 
-# Features
+## Features
 - Compiled with an Ubuntu 16 LTS File System
 - UIO (User Inputs Outputs) enabled
