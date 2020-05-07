@@ -1,4 +1,4 @@
-# Edge Computing Artificial Neural Network 
+# AI Powered Flood Prediction System 
 This implementation of an IoT Edge Computing System can predict a flood and dinamically reconfigure its hardware based on the data load
 
 # VIVADO HLS Hardware ANN IP Core
