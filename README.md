@@ -1,5 +1,5 @@
 # Edge Computing Artificial Neural Network 
-This implementation of an IoT Edge Computing System can dinamically reconfigure its hardware based on the data load and polling system
+This implementation of an IoT Edge Computing System can predict a flood and dinamically reconfigure its hardware based on the data load
 
 # VIVADO HLS Hardware ANN IP Core
 
