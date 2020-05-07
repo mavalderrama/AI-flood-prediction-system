@@ -1,6 +1,10 @@
+# Edge Computing Artificial Neural Network 
+This implementation of an IoT Edge Computing System can dinamically reconfigure its hardware based on the data load and polling system
+
 # VIVADO HLS Hardware ANN IP Core
 
 Hardware implementation of a fully conected Artificial Neural Network using Xilinx Vivado HLS
+Available at Vivado/HLS
 
 ## Features
 - Input Layers:
@@ -15,6 +19,15 @@ Hardware implementation of a fully conected Artificial Neural Network using Xili
 	- Hardware feed forward back progragation method
 - Activation Function:
 	- Sigmoid
+- Buses
+	- AXI Full for data I/O
+	- AXI Lite for management and configuration
+
+# Artificial Neural Network (Software implementation)
+
+## Features
+Same features as HW counterpart but slower
+Available at Zynq7K/Software
   
 # Petalinux on ZYNQ7000
 
@@ -23,4 +36,7 @@ This version was compiled to work with an Artificial Neural Network Accelerator 
 
 ## Features
 - Compiled with an Ubuntu 16 LTS File System
-- UIO (User Inputs Outputs) enabled
+- The Device Tree Source includes UIO (User Inputs Outputs) and a gigabit Ethernet drivers Zynq7K/Device Tree Source
+- Boot files available on Zynq7K/Petalinux Boot Files
+
+
