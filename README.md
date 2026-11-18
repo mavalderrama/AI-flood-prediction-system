@@ -81,36 +81,47 @@ make -C Vivado/HLS csim                        # HLS source vs golden vectors (o
 make -C Zynq7K/Software host-test              # driver vs simulated IP + full C++ replay of 2021-2026
 ```
 
-### Build the hardware (Vivado HLS / Vivado 2017.4)
+### Build the hardware and the Linux image (AMD 2026.2 + EDF)
 
-1. `cd Vivado/HLS && vivado_hls -f run_hls.tcl`
-   - This runs csim, csynth, cosim and IP export for the WO-OPT, PIPELINE and
-     FULL-PIPE variants.
-   - It copies the generated `xtopann_hw.h` to `Zynq7K/Software/`.
-   - All variants share one register map, so dynamic reconfiguration keeps
-     working with one driver. Do not add `array_partition` on the interface
-     arrays: it changes the map.
-2. In the Vivado block design (`Vivado/Syntesis`):
-   - Replace `TOPANN 1.4` with the new `topann` IP. Keep the instance name
-     **TOPANN_0** and the address **0x43C00000 / 64K**, so the device tree node
-     still applies.
-   - Remove `axi_smc` and the S_AXI_ACP connections: the new IP has no AXI master.
-3. Generate the bitstreams and replace the ones in `Zynq7K/bitstreams/`. The
-   old bitstreams contain the old IP and do not work with the new driver.
+The board side targets the latest AMD release, **2026.2**, with **EDF v26.11**.
+EDF is AMD's Yocto-based replacement for PetaLinux. The full procedure and
+troubleshooting are in [`Yocto/README.md`](Yocto/README.md):
+
+```bash
+cd Vivado/HLS && vitis-run --mode hls --tcl run_hls.tcl && cd ../..   # IP + xtopann_hw.h
+vivado -mode batch -source Vivado/build_hw.tcl -tclargs WO-OPT         # bitstream, .bit.bin, XSA
+sdtgen Yocto/sdt.tcl                                                   # system device tree
+# EDF workspace: add Yocto/meta-flood, gen-machine-conf parse-sdt, then
+MACHINE=zybo-topann bitbake edf-linux-disk-image xilinx-bootbin
+```
+
+- All HLS variants share one register map, so dynamic reconfiguration keeps
+  working with one driver. Do not add `array_partition` on the interface
+  arrays: it changes the map.
+- `Vivado/build_hw.tcl` recreates the block design from scratch: PS7 for the
+  ZYBO, `TOPANN_0` at **0x43C00000 / 64K**, and no ACP/SmartConnect. The
+  bitstreams in `Zynq7K/bitstreams/` from 2017 contain the old IP and do not
+  work with the new driver.
 
 ### Run on the board
 
 ```bash
-make -C Zynq7K/Software arm                    # needs the regenerated xtopann_hw.h
-# copy predictor.bin, Zynq7K/script/fpga.sh and data/processed/golden_replay.csv to the board
-./fpga.sh topann.bit
-./predictor.bin --replay golden_replay.csv --check   # FPGA vs CPU vs Python, expect 0 mismatches
-./predictor.bin < daily_readings.csv                 # date,stage_br,q_vicks,q_thebes,rain_BTR
+topann-load WO-OPT                     # program the PL through the FPGA Manager
+flood-predictor --replay /usr/share/flood-predictor/golden_replay.csv --check   # expect 0 mismatches
+flood-predictor < daily_readings.csv   # date,stage_br,q_vicks,q_thebes,rain_BTR
 ```
 
-`fpga.sh` pauses a running predictor while the PL is reprogrammed, then sends
-it `SIGHUP` to reload the weights. A new bitstream starts with empty weight
-registers.
+- **Weights after reprogramming:** a new bitstream starts with empty weight
+  registers. The driver reads one weight back before and after every
+  inference, and reloads (and retries) if the PL was reprogrammed by any means.
+- **`topann-load`** (`Zynq7K/script/fpga.sh`) stops running predictors while
+  the PL is reprogrammed, because an AXI access to an unconfigured PL stalls
+  the bus. It resumes them only if programming succeeded; after a failure they
+  stay stopped.
+- **Startup check:** `flood-predictor` refuses to start if the FPGA Manager
+  says the PL is not configured.
+- **Finding the IP:** the predictor finds the IP's UIO device by address.
+  `--devmem` maps it through `/dev/mem` for bring-up.
 
 ## What was wrong in the thesis version
 
@@ -119,7 +130,7 @@ registers.
 | MATLAB's `feedforwardnet` applies `mapminmax` to the inputs; the exported `IW/LW/b` were used without it | Accuracy fell from 99% in MATLAB to ~53% on the hardware path | Normalization is exported with the model and applied in `features.cpp` |
 | `loadWeigths()` accumulated pointer offsets (`ptr += i*100 + j*10 + k`) | Only 6 of 16 parameters reached their register; the IP always answered "no flood" | Direct indexing; host test checks every register |
 | The completion loop `while(check >= 6)` exited while the IP was still running | The result was read before it existed | Wait for `ap_done`, with a timeout |
-| Inputs and output were mapped through `/dev/mem` at physical page 0, and the m_axi pointer registers were never written | Undefined data path; writes into Linux RAM | All ports are AXI4-Lite through UIO; no `/dev/mem` |
+| Inputs and output were mapped through `/dev/mem` at physical page 0, and the m_axi pointer registers were never written | Undefined data path; writes into Linux RAM | All ports are AXI4-Lite, mapped at the IP's real address through UIO |
 | Labels were `stage(t) > 30 ft`, computed from one of the inputs, and shifted by one sample (`T[:-1]` instead of `T[1:]`) | The model detected an ongoing flood instead of forecasting one | Labels are `max(stage[t+1..t+H]) > 30 ft`, with features that only use data up to t |
 | `fi(...,1,32,28)` saturates at ±8 while the HLS type is Q8.24 | Two weights clipped | One Q8.24 spec; export fails if a weight exceeds the limit |
 | Random train/test split of a time series; evaluation on the training data | Optimistic accuracy | Chronological split, baselines, event-level metrics |
@@ -130,10 +141,13 @@ These are kept unchanged for reference:
 - `Matlab/`
 - `Vivado/HLS/{ANN.cpp,main.cpp,hardware.h,coe3.h,dataset.h}` and the old solution folders
 - `Zynq7K/Software/{main.cpp,hardware.h,coe3.h,accel.bin,annFINAL.bit}`
-- `Zynq7K/bitstreams/`
+- `Zynq7K/bitstreams/` (except the new `topann-*` files written by `Vivado/build_hw.tcl`)
+- `Vivado/Syntesis/` (the 2017.4 project; replaced by `Vivado/build_hw.tcl`)
 
-### Petalinux on ZYNQ7000
+### PetaLinux 2017.4 (thesis setup, superseded by EDF)
 - Compiled with an Ubuntu 16 LTS file system.
-- The device tree (`Zynq7K/Device Tree Source`) includes the UIO node for the
-  accelerator and the gigabit Ethernet driver.
+- The device tree (`Zynq7K/Device Tree Source/system-user.dtsi`) has the UIO
+  node and the gigabit Ethernet PHY. For EDF it is replaced by
+  `Yocto/dts/topann-user.dtsi`; the Ethernet PHY is described by the generated
+  device tree.
 - Boot files are in `Zynq7K/Petalinux Boot Files`.

@@ -5,13 +5,23 @@
 // (topann IP via UIO) and on the CPU reference, and prints the forecast:
 // "flood (stage > FLOOD_STAGE_FT) within the next HORIZON_DAYS days".
 //
-//   predictor [--replay FILE] [--cpu-only] [--check] [--quiet]
-//             [--uio /dev/uio0] [--uio-size /sys/class/uio/uio0/maps/map0/size]
+//   flood-predictor [--replay FILE] [--cpu-only] [--check] [--quiet]
+//                   [--uio auto|/dev/uioN] [--devmem]
 //
+// --uio auto (default) finds the UIO device mapped at TOPANN_PHYS_BASE.
+// --devmem maps the IP through /dev/mem instead (root; for bring-up when the
+//          device-tree node is missing).
 // --check compares against the expected_raw / expected_alarm columns of
 // data/processed/golden_replay.csv and exits non-zero on any mismatch.
-// After reprogramming the PL (Zynq7K/script/fpga.sh) send SIGHUP to reload
-// the weights: a new bitstream starts with empty weight registers.
+// --skip-pl-check skips the FPGA Manager "operating" check (see below).
+//
+// A new bitstream starts with empty weight registers. The driver detects that
+// by itself (ANN::ensure_weights) and reloads, whatever reprogrammed the PL.
+// SIGHUP forces a reload too; it is handled in every mode, so tools that
+// signal flood-predictor never kill it.
+//
+// Before touching the IP the predictor checks that the PL is configured:
+// an AXI access to an unconfigured PL stalls the bus instead of failing.
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -51,14 +61,19 @@ static double parse_value(const std::string& s) {
     return strtod(s.c_str(), NULL);
 }
 
+static const char* const FPGA_STATE = "/sys/class/fpga_manager/fpga0/state";
+
 int main(int argc, char** argv) {
-    std::string replay, uio = "/dev/uio0", uio_size = "/sys/class/uio/uio0/maps/map0/size";
-    bool cpu_only = false, check = false, quiet = false;
+    signal(SIGHUP, on_sighup);   // first, so a HUP can never terminate the process
+
+    std::string replay, uio = "auto";
+    bool cpu_only = false, check = false, quiet = false, devmem = false, skip_pl_check = false;
     for (int i = 1; i < argc; i++) {
         std::string a = argv[i];
         if (a == "--replay" && i + 1 < argc) replay = argv[++i];
         else if (a == "--uio" && i + 1 < argc) uio = argv[++i];
-        else if (a == "--uio-size" && i + 1 < argc) uio_size = argv[++i];
+        else if (a == "--devmem") devmem = true;
+        else if (a == "--skip-pl-check") skip_pl_check = true;
         else if (a == "--cpu-only") cpu_only = true;
         else if (a == "--check") check = true;
         else if (a == "--quiet") quiet = true;
@@ -68,17 +83,35 @@ int main(int argc, char** argv) {
         }
     }
 
-    UioRegisters regs;
+    MappedRegisters regs;
     ANN* accel = NULL;
     if (!cpu_only) {
-        std::string err;
-        if (!regs.open(uio, uio_size, &err)) {
+        std::string err, state;
+        if (!skip_pl_check && !pl_is_configured(FPGA_STATE, &state)) {
+            std::cerr << "[ERROR] the PL is not configured (" << FPGA_STATE << " = '" << state
+                      << "'). Program it first, e.g. `topann-load WO-OPT` "
+                         "(--skip-pl-check to override, --cpu-only to run without the FPGA)\n";
+            return 1;
+        }
+        bool ok;
+        if (devmem) {
+            ok = regs.open_devmem(TOPANN_PHYS_BASE, TOPANN_MAP_SIZE, &err);
+        } else {
+            if (uio == "auto") uio = find_uio_device("/sys/class/uio", TOPANN_PHYS_BASE);
+            if (uio.empty()) {
+                err = "no UIO device for the topann IP (check the device-tree node and the "
+                      "uio_pdrv_genirq of_id=generic-uio module option, or use --devmem)";
+                ok = false;
+            } else {
+                ok = regs.open_uio(uio, &err);
+            }
+        }
+        if (!ok) {
             std::cerr << "[ERROR] " << err << " (use --cpu-only to run without the FPGA)\n";
             return 1;
         }
         accel = new ANN(&regs);
         accel->load_weights();
-        signal(SIGHUP, on_sighup);
     }
 
     std::ifstream file;
@@ -122,10 +155,12 @@ int main(int argc, char** argv) {
         for (int c = 0; c < N_COLS; c++) r.v[c] = parse_value(f[c + 1]);
         fx.push(r);
 
-        if (g_reload && accel) {
-            accel->load_weights();
+        if (g_reload) {
             g_reload = 0;
-            std::cerr << "[INFO] weights reloaded\n";
+            if (accel) {
+                accel->load_weights();
+                std::cerr << "[INFO] weights reloaded (SIGHUP)\n";
+            }
         }
 
         double feats[N_IN];
@@ -145,7 +180,8 @@ int main(int argc, char** argv) {
             int32_t y_hw;
             if (!accel->infer_raw(x, &y_hw)) {
                 hw_timeouts++;
-                std::cerr << "[ERROR] " << f[0] << ": accelerator timeout (ap_done never set)\n";
+                std::cerr << "[ERROR] " << f[0] << ": accelerator timeout (ap_done never set). "
+                          << "Is a topann bitstream loaded (topann-load) and is FCLK0 running?\n";
                 continue;
             }
             hw_time_us += now_us() - t0;
@@ -175,6 +211,7 @@ int main(int argc, char** argv) {
     std::cerr << "rows=" << rows << " predictions=" << predictions << " alarms=" << alarms;
     if (accel)
         std::cerr << " hw_cpu_mismatch=" << hw_cpu_mismatch << " hw_timeouts=" << hw_timeouts
+                  << " weight_reloads=" << accel->reloads()
                   << " avg_hw_latency_us=" << (predictions ? hw_time_us / predictions : 0.0);
     if (check) std::cerr << " expected_mismatch=" << expected_mismatch;
     std::cerr << "\n";

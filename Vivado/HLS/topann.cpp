@@ -36,6 +36,9 @@ void topann(const fix_t inputs[N_IN],
 #pragma HLS INTERFACE s_axilite port=b2 bundle=CTRL
 #pragma HLS INTERFACE s_axilite port=result bundle=CTRL
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
+// Plain start/done handshake: the driver waits for ap_done and never writes
+// ap_continue, so the block protocol must not be ap_ctrl_chain.
+#pragma HLS INTERFACE ap_ctrl_hs port=return
 
     fix_t hidden[H_HID];
 

@@ -1,0 +1,13 @@
+/*
+ * User device-tree fragment for the ZYBO + topann design, passed to sdtgen
+ * (set_dt_param -user_dts, see Yocto/sdt.tcl). Replaces the PetaLinux 2017.4
+ * "Zynq7K/Device Tree Source/system-user.dtsi".
+ *
+ * TOPANN_0 is the block-design instance name used by Vivado/build_hw.tcl
+ * (address 0x43C00000 / 64K). "generic-uio" lets uio_pdrv_genirq expose its
+ * registers as /dev/uioN; the module option of_id=generic-uio is installed by
+ * the flood-predictor recipe, so no kernel bootargs are needed.
+ */
+&TOPANN_0 {
+	compatible = "generic-uio";
+};

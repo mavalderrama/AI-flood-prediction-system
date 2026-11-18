@@ -3,7 +3,7 @@
 #   make csim     compile topann.cpp + tb_topann.cpp with Xilinx's open-source
 #                 ap_fixed headers and check them against the golden vectors
 #
-# Synthesis, co-simulation and IP export: vivado_hls -f run_hls.tcl
+# Synthesis, co-simulation and IP export (AMD 2026.2): vitis-run --mode hls --tcl run_hls.tcl
 
 AP_TYPES := third_party/HLS_arbitrary_Precision_Types
 CXX      ?= c++

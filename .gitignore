@@ -8,3 +8,8 @@ __pycache__/
 Zynq7K/Software/build/
 Vivado/HLS/build/
 Vivado/HLS/third_party/
+# Vitis HLS components, Vivado projects and the generated system device tree
+Vivado/HLS/topann_*/
+Vivado/HLS/topann_prj/
+Vivado/build/
+/build/
