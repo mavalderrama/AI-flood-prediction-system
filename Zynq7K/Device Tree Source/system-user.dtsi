@@ -8,11 +8,11 @@
 
 };
 
+/* topann inference IP (AXI4-Lite bundle CTRL). Keep the block-design instance
+ * name TOPANN_0 and the address 0x43C00000 / 64K so this node still applies. */
 &TOPANN_0  {
 			compatible = "generic-uio";
 			reg = <0x43c00000 0x10000>;
-			xlnx,s-axi-axilites-addr-width = <0x8>;
-			xlnx,s-axi-axilites-data-width = <0x20>;
 		};
 
 &gem0 {

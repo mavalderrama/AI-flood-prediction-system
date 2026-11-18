@@ -1,0 +1,10 @@
+# Raw downloads are cached locally; the processed dataset is committed.
+data/raw/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+# Host test builds
+Zynq7K/Software/build/
+Vivado/HLS/build/
+Vivado/HLS/third_party/

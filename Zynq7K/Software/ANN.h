@@ -1,60 +1,59 @@
+// Linux user-space driver for the topann inference IP (AXI4-Lite only).
+//
+// Fixes over the thesis driver:
+//  * weights are written at BASE + 4*index (the old code accumulated offsets);
+//  * completion is detected with ap_done (the old loop exited while running);
+//  * no /dev/mem and no DDR buffers: everything goes through the UIO mapping;
+//  * every open/mmap is checked.
+#ifndef ANN_H
+#define ANN_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include <math.h>
-#include <time.h>
 #include <stdint.h>
-#include <assert.h>
-#include <dirent.h>
-#include <fcntl.h>
-#include <sys/mman.h>
-#include <unistd.h>
-#include <iostream>
-#include "xtopann_hw.h"
 
-#define LAYERS  1
-#define NEURONS 3
-#define OUTPUTS 1
-#define INPUT_BASE_ADDR 0x05000000
-#define OUTPUT_BASE_ADDR 0x07000000
-#define DEV_MEM	"/dev/mem"
-#define UIO_SIZE "/sys/class/uio/uio0/maps/map0/size"
+#include <string>
 
-class ANN
-{
-    public:
+#include "model_params.h"
 
-	unsigned *IP_Ctrl;
-	unsigned Page_Size;
-	void *base_address;
-	unsigned int uio_size;
-	unsigned int* Inputs;
-	unsigned int* Output;
-	unsigned int* layerWeigth;
-	unsigned int* layerBias;
-	unsigned int* outputWeigth;
-	unsigned int* outputBias;
-	unsigned int* input_hw;
-	unsigned int* output_hw;
-
-
-    ANN();
-
-	~ANN();
-
-    int getAddr();
-
-	int mapPorts();
-
-	int loadWeigths(unsigned int layerWeigthT[LAYERS][NEURONS][NEURONS],unsigned int layerBiasT[LAYERS][NEURONS],unsigned int outputWeigthT[OUTPUTS][NEURONS],unsigned int outputBiasT[OUTPUTS]);
-
-	int initPL();
-
-	int setInputs(unsigned int NInputs[3]);
-
-	unsigned int startOP();
-
-	unsigned int * assignToPhysical(unsigned long address,unsigned int size);
+// Register access, so the driver can be tested against a simulated device.
+class RegisterIO {
+public:
+    virtual ~RegisterIO() {}
+    virtual uint32_t read(uint32_t offset) = 0;
+    virtual void write(uint32_t offset, uint32_t value) = 0;
 };
+
+// Registers mapped through /dev/uioN (device tree node of the IP).
+class UioRegisters : public RegisterIO {
+public:
+    UioRegisters() : fd_(-1), base_(0), size_(0) {}
+    ~UioRegisters();
+    // Returns false and fills `error` on failure.
+    bool open(const std::string& uio_dev, const std::string& size_path, std::string* error);
+    uint32_t read(uint32_t offset);
+    void write(uint32_t offset, uint32_t value);
+
+private:
+    int fd_;
+    volatile uint32_t* base_;
+    size_t size_;
+};
+
+class ANN {
+public:
+    explicit ANN(RegisterIO* regs) : regs_(regs) {}
+
+    // Writes the exported model (model_params.h). Must be called again after
+    // every bitstream (re)configuration: reprogramming the PL clears the weights.
+    void load_weights();
+    void load_weights(const int32_t* w1, const int32_t* b1, const int32_t* w2, int32_t b2);
+
+    // One inference. Returns false on timeout (IP did not raise ap_done).
+    bool infer_raw(const int32_t x_raw[N_IN], int32_t* out_raw, unsigned max_polls = 1000000);
+
+    bool is_idle();
+
+private:
+    RegisterIO* regs_;
+};
+
+#endif

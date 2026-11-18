@@ -1,0 +1,26 @@
+{
+  "stage": {
+    "usgs_site": "07374000",
+    "start": "2011-02-16",
+    "end": "2018-03-22",
+    "corr": 0.999737148296136,
+    "rmse_ft": 0.26491819417095414,
+    "legacy_zero_rows": 44
+  },
+  "humidity": {
+    "start": "2011-02-16",
+    "corr": 0.9817946552284668
+  },
+  "rain": {
+    "corr_at_stage_offset": 0.9010587024815315,
+    "max_ratio_btr_over_legacy": 29.35171568627452
+  },
+  "labels T[1:]": {
+    "min_stage_flood": 30.03,
+    "max_stage_no_flood": 30.0
+  },
+  "labels T[:-1] (used in dataset.h)": {
+    "min_stage_flood": 0.0,
+    "max_stage_no_flood": 31.87
+  }
+}
